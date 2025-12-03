@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aalam - Платформа наставников</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <style>
+        /* Анимация для фона */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        /* Плавный скролл для всей страницы */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Кастомный размер для иллюстрации */
+        .w-150 { width: 35rem; }
+        .h-150 { height: 35rem; }
+        
+        /* Отступ для скролла, чтобы компенсировать фиксированную шапку */
+        .scroll-mt-24 { scroll-margin-top: 6rem; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home'); scrollToSection('hero')">
+                <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-10">
+                <button onclick="navigateTo('home'); scrollToSection('hero')" class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Главная</button>
+                <button onclick="navigateTo('home'); scrollToSection('why_we_section')" class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Почему мы?</button>
+                <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Наша Миссия</button>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="navigateTo('catalog')" class="px-6 py-2 rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all hover:shadow-lg">
+                    Найти Наставника
+                </button>
+                <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="px-6 py-2 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all text-center flex items-center cursor-pointer">
+                    Стать наставником
+                </button>
+            </div>
+
+            <button class="md:hidden text-gray-600" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 flex flex-col gap-4 shadow-lg absolute w-full z-50">
+            <button onclick="navigateTo('home'); scrollToSection('hero'); toggleMobileMenu()" class="text-left text-gray-600 font-medium">Главная</button>
+            <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="text-left text-blue-600 font-medium">Найти Наставника</button>
+            <button onclick="navigateTo('home'); scrollToSection('cta_section'); toggleMobileMenu()" class="text-left text-blue-600 font-medium">Стать наставником</button>
+        </div>
+    </header>
+
+    <main class="flex-grow relative">
+
+        <section id="view-home" class="page-section active">
+            <div id="hero" class="bg-gradient-to-br from-blue-50 via-blue-100 to-white pt-12 pb-20 relative overflow-hidden scroll-mt-24">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <div class="absolute top-0 left-0 -translate-x-10 -translate-y-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                        <i data-lucide="graduation-cap" class="w-12 h-12 text-gray-900 mb-4 transform -rotate-12"></i>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                            Покори Экзамены с Топ-Наставниками!
+                        </h1>
+                        <div class="bg-blue-100/50 border border-blue-200 p-4 rounded-lg inline-block mb-8 max-w-md">
+                            <p class="text-blue-900 font-medium text-sm">Индивидуальные Zoom-консультации с лучшими наставниками</p>
+                        </div>
+                        
+                        <div>
+                            <button onclick="navigateTo('catalog')" class="px-8 py-4 text-sm bg-blue-600 text-white rounded-full font-bold shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center">
+                                <i data-lucide="search" class="w-5 h-5 mr-2"></i>
+                                НАЙТИ НАСТАВНИКА
+                            </button>
+                        </div>
+
+                    </div>
+                    
+                    <div class="hidden md:flex md:w-1/2 justify-center relative ">
+                        <div class="relative w-200 h-200 md:w-96 md:h-96 flex items-center justify-center">
+                            <img src="img/girl.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="flex flex-col items-center group">
+                            <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-2xl flex items-center justify-center mb-4 group-hover:border-blue-500 transition-colors relative">
+                                <i data-lucide="user" class="w-10 h-10 text-blue-900"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current absolute -top-1 -right-1"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-lg">Выбери Наставника</h3>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-2xl flex items-center justify-center mb-4 group-hover:border-blue-500 transition-colors relative">
+                                <i data-lucide="calendar" class="w-10 h-10 text-blue-900"></i>
+                                <i data-lucide="check-circle" class="w-4 h-4 text-green-500 fill-current absolute -bottom-1 -right-1"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-lg">Свяжись с менеджером</h3>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="w-20 h-20 bg-white border-2 border-gray-100 shadow-sm rounded-2xl flex items-center justify-center mb-4 group-hover:border-blue-500 transition-colors">
+                                <i data-lucide="video" class="w-10 h-10 text-blue-500"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-lg">Начни заниматься</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-16 bg-gray-50">
+                <div class="container mx-auto px-12 max-w-4xl space-y-12">
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Популярные Экзамены:</h2>
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">ORT</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">SAT</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">IELTS</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">TOEFL</span>
+                        </div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Предметные Олимпиады:</h2>
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Математика</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Химия</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Физика</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Биология</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Информатика</span>
+                        </div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Языки для изучения:</h2>
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Английский</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Китайский</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Японский</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Немецкий</span>
+                            <span class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Испанский</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="why_we_section" class="py-20 bg-white scroll-mt-24">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-16 uppercase tracking-wider">Почему выбирают нас?</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-blue-50/50 p-8 rounded-xl hover:shadow-lg transition-shadow border border-blue-100 flex flex-col h-full text-left">
+                            <div class="mb-4 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                                <i data-lucide="shield" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-blue-900 mb-2 text-lg">Проверенные Эксперты</h3>
+                            <p class="text-gray-500 text-sm">Только наставники с верифицированными высокими баллами.</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-8 rounded-xl hover:shadow-lg transition-shadow border border-blue-100 flex flex-col h-full text-left">
+                            <div class="mb-4 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                                <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-blue-900 mb-2 text-lg">Индивидуальный Подход</h3>
+                            <p class="text-gray-500 text-sm">Личные консультации 1-на-1, фокус на твоих задачах.</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-8 rounded-xl hover:shadow-lg transition-shadow border border-blue-100 flex flex-col h-full text-left">
+                            <div class="mb-4 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                                <i data-lucide="clock" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-blue-900 mb-2 text-lg">Гибкость</h3>
+                            <p class="text-gray-500 text-sm">Выбирай время, занимайся онлайн через Zoom.</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-8 rounded-xl hover:shadow-lg transition-shadow border border-blue-100 flex flex-col h-full text-left">
+                            <div class="mb-4 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                                <i data-lucide="target" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="font-bold text-blue-900 mb-2 text-lg">Результат</h3>
+                            <p class="text-gray-500 text-sm">Мы нацелены на твой успех и максимальный балл.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="cta_section" class="py-12 px-4 scroll-mt-24">
+                <div class="container mx-auto bg-blue-100/80 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden shadow-sm border border-blue-200/50">
+                    <i data-lucide="graduation-cap" class="absolute top-8 left-8 w-16 h-16 text-blue-900/20 transform -rotate-12"></i>
+                    <i data-lucide="message-circle" class="absolute bottom-8 right-8 w-20 h-20 text-blue-900/20 transform rotate-12"></i>
+                    <div class="relative z-10 max-w-2xl mx-auto">
+                        <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-4 leading-tight">Сдавал на высокие баллы? <br> Свободно владеешь языком?</h2>
+                        <h3 class="text-xl font-bold text-blue-800 mb-6 tracking-wide uppercase">Тогда Стань Наставником!</h3>
+                        <p class="text-gray-700 mb-8 max-w-lg mx-auto text-lg">Делись знаниями, помогай другим и зарабатывай. Напиши нам в любой мессенджер!</p>
+                        
+                        <div class="flex justify-center items-center gap-6 mt-8">
+                            <a href="https://t.me/hukeirzz" target="_blank" class="social-icon-link bg-[#229ED9] rounded px-2 py-2 :bg-[#1e8dbf] text-white" title="Написать в Telegram">
+                                <i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i>
+                            </a>
+                            <a href="https://wa.me/996505880444" target="_blank" class="social-icon-link bg-[#25D366] rounded px-2 py-2 hover:bg-[#20bd5a] text-white" title="Написать в WhatsApp">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://instagram.com/hukeirzz" target="_blank" class="social-icon-link rounded px-2 py-2 bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Написать в Instagram">
+                                <i data-lucide="instagram" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Нажмите на иконку, чтобы связаться</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mission_section" class="py-16 bg-white mb-10 scroll-mt-24">
+                <div class="container mx-auto">
+                    <div class="bg-orange-50/50 rounded-3xl p-8 md:p-0 overflow-hidden flex flex-col md:flex-row items-center border border-orange-100/50 shadow-sm">
+                        <div class="md:w-1/2 p-8 md:p-12 relative h-full min-h-[300px] flex items-center justify-center">
+                            <div class="relative w-48 h-48 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-white">
+                                <i data-lucide="trending-up" class="w-24 h-24 text-blue-600"></i>
+                                <i data-lucide="star" class="w-12 h-12 text-yellow-400 fill-current absolute -top-3 -right-3 animate-pulse filter drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8 md:p-16">
+                            <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-6">Наша Миссия</h2>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                Предоставить каждому ученику доступ к проверенным знаниям и опыту тех, кто уже достиг вершин. Мы верим, что ключ к успеху лежит в индивидуальном подходе и возможности учиться у лучших.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-catalog" class="page-section bg-gray-50 min-h-screen pb-20" style="display: none;">
+            <div class="container mx-auto px-4 py-8">
+                <div class="mb-8 bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center sticky top-20 z-20">
+                    <i data-lucide="search" class="text-gray-400 w-5 h-5 ml-2"></i>
+                    <input type="text" id="catalog-search" placeholder="Найти наставника по имени или предмету..." class="w-full ml-4 outline-none text-gray-700" oninput="filterTutors()">
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8 relative">
+                    <div class="lg:w-1/4 lg:sticky lg:top-36 h-fit">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="font-bold text-blue-900 text-lg uppercase tracking-wide">Фильтры</h3>
+                                <button onclick="resetFilters()" class="text-xs text-blue-600 hover:underline">Сбросить</button>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="font-bold text-blue-900 text-sm mb-3">Экзамены:</h4>
+                                    <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="exam-filters">
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="ORT" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>ORT</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="SAT" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>SAT</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="IELTS" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>IELTS</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="TOEFL" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>TOEFL</span></label>
+                                    </div>
+                                    <h4 class="font-bold text-blue-900 text-sm mb-3">Олимпиады:</h4>
+                                    <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="exam-filters">
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Математика" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Математика</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Физика" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Физика</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Химия" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Химия</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Биология" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Биология</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Информатика" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Информатика</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="История" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>История</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="География" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>География</span></label>
+                                    </div>
+                                    <h4 class="font-bold text-blue-900 text-sm mb-3">Языки:</h4>
+                                    <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="exam-filters">
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Английский" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Английский</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Испанский" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Испанский</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Немецкий" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Немецкий</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Арабский" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Арабский</span></label>
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Китайский" class="rounded text-blue-600 accent-blue-600" onchange="filterTutors()"><span>Китайский</span></label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-3/4">
+                        <div id="tutors-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 content-start">
+                            </div>
+                         <div id="no-results" class="hidden text-center py-12 text-gray-500">
+                            По вашему запросу ничего не найдено.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
+                    <span class="font-semibold text-blue-900">Наставник</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
+                    <span>Каталог</span>
+                </div>
+
+                <div id="profile-content"></div>
+            </div>
+        </section>
+
+        <section id="view-privacy" class="page-section container mx-auto px-4 py-12 max-w-4xl" style="display: none;">
+            <h1 class="text-3xl font-bold text-blue-900 mb-8">Политика конфиденциальности</h1>
+            <div class="prose prose-blue max-w-none text-gray-700 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <p>Здесь будет текст вашей политики конфиденциальности.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-50/50 pt-16 pb-8 border-t border-blue-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home'); scrollToSection('hero')">
+                    <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 text-sm text-gray-600">
+                    <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="text-left hover:text-blue-600">Стать Наставником</button>
+                    <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="text-left hover:text-blue-600">Наша Миссия</button>
+                    <button onclick="navigateTo('privacy')" class="text-left hover:text-blue-600">Политика конфиденциальности</button>
+                </div>
+                <div class="flex flex-col gap-3 text-sm text-gray-600">
+                    <a href="https://instagram.com/hukeirzz" class="flex items-center gap-2 hover:text-pink-600"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
+                    <a href="https://t.me/hukeirzz" class="flex items-center gap-2 hover:text-blue-600"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
+                    <a href="https://wa.me/996505880444" class="flex items-center gap-2 hover:text-green-600"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</a>
+                </div>
+                 <div class="flex flex-col items-start md:items-end justify-between h-full">
+                    <i data-lucide="arrow-up" class="w-6 h-6 text-gray-400 mb-4 cursor-pointer hover:text-blue-600" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></i>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dastantoktobekov2@gmail.com" target="_blank" class="text-gray-500 text-xs underline decoration-gray-300 hover:text-blue-600">dastantoktobekov2@gmail.com</a>                </div>
+            </div>
+            <div class="border-t border-blue-200 pt-8 text-center">
+                <p class="text-gray-400 text-xs">© 2026 AALAM. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Data ---
+        const tutors = [
+            {
+                id: 1,
+                name: "Иса Мамытов",
+                rating: 3.0,
+                reviews: 45,
+                role: "Олимпиады: Физика",
+                about: "Я реально нацелен на твой успех. Шансы высоки, что ты станешь физиком мирового уровня.",
+                experience: "Золотой Призер Международной Олимпиады по физике.",
+                price: "300 c/час",
+                avatarColor: "bg-blue-200"
+            },
+            {
+                id: 2,
+                name: "Ахмад Акматсадыков",
+                rating: 3.0,
+                reviews: 34,
+                role: "Экзамены: SAT (1400+)",
+                about: "Помогу подготовиться к SAT на высокий балл. Индивидуальный подход к каждому.",
+                experience: "Поступал в топовые вузы США. Опыт преподавания 2 года.",
+                price: "200 c/час",
+                avatarColor: "bg-green-200"
+            },
+            {
+                id: 3,
+                name: "Елена Смирнова",
+                rating: 4.9,
+                reviews: 21,
+                role: "Английский язык: IELTS",
+                about: "Преподаватель со стажем 5 лет. Готовлю к IELTS Academic и General.",
+                experience: "Сертификат CELTA, IELTS 8.5.",
+                price: "350 c/час",
+                avatarColor: "bg-purple-200"
+            },
+            {
+                id: 4,
+                name: "Аяна Пазылова",
+                rating: 5.0,
+                reviews: 35,
+                role: "Английский язык: IELTS",
+                about: "Преподаватель со стажем 6 лет. Готовлю к IELTS Academic и General.",
+                experience: "Сертификат IELTS 8.",
+                price: "300 c/час",
+                avatarColor: "bg-pink-200"
+            },
+            {
+                id: 5,
+                name: "Алтынбек Болотбеков",
+                rating: 0.0,
+                reviews: 60,
+                role: "Кыргызский язык",
+                about: "Мен жаман баламын. ХАХАХАХА",
+                experience: "Сертификат IELTS 0.",
+                price: "1000 c/час",
+                avatarColor: "bg-black-200",
+                photoUrl: "tutors_photos/Altynbek.jpg"
+            }
+        ];
+
+        // --- Functions ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // --- НОВОЕ: Проверяем URL при загрузке страницы ---
+            // Если мы обновили страницу на ?view=catalog, нужно открыть каталог
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialView = urlParams.get('view') || 'home';
+            const initialParam = urlParams.get('param');
+
+            // Загружаем вид, но НЕ добавляем это в историю (true в конце)
+            navigateTo(initialView, initialParam, true);
+        });
+
+        // --- НОВОЕ: Слушаем нажатия кнопок "Назад" и "Вперед" в браузере ---
+        window.addEventListener('popstate', (event) => {
+            // Если есть сохраненное состояние, переходим к нему
+            if (event.state && event.state.view) {
+                // Переходим, но НЕ добавляем в историю снова (true в конце), иначе зациклится
+                navigateTo(event.state.view, event.state.param, true);
+            } else {
+                // Если состояния нет, значит мы вернулись в самое начало - на главную
+                navigateTo('home', null, true);
+            }
+        });
+
+
+        // Navigation (Функция изменена)
+        // isPopState = true означает, что переход вызван кнопкой "Назад" браузера,
+        // поэтому нам не нужно пушить новую запись в историю.
+        function navigateTo(viewId, param = null, isPopState = false) {
+            
+            // --- НОВОЕ: Управление историей браузера ---
+            if (!isPopState) {
+                let url;
+                if (viewId === 'home') {
+                    // Для главной страницы делаем чистый URL
+                    url = window.location.pathname;
+                } else {
+                    // Для других страниц добавляем параметр ?view=...
+                    url = `?view=${viewId}`;
+                    if (param) {
+                        url += `&param=${param}`;
+                    }
+                }
+                // Добавляем запись в историю браузера
+                history.pushState({ view: viewId, param: param }, '', url);
+            }
+            // -------------------------------------------
+
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+                el.style.display = 'none'; 
+            });
+
+            const target = document.getElementById(`view-${viewId}`);
+            if(target) {
+                target.style.display = 'block';
+                setTimeout(() => target.classList.add('active'), 10);
+                // Если переходим не на главную, скроллим вверх.
+                if (viewId !== 'home') {
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            if (viewId === 'catalog') {
+                 if (!param) resetFilters(); 
+                 renderCatalog(tutors);
+            }
+            if (viewId === 'profile' && param) renderProfile(param);
+        }
+
+        // Helper for smooth scrolling to sections
+        function scrollToSection(sectionId) {
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 50);
+        }
+
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Новая логика фильтрации
+        function filterTutors() {
+            const searchQuery = document.getElementById('catalog-search').value.toLowerCase();
+            const checkedFilters = Array.from(document.querySelectorAll('#exam-filters input:checked'))
+                                        .map(input => input.value.toLowerCase());
+
+            const filtered = tutors.filter(tutor => {
+                const matchesSearch = tutor.name.toLowerCase().includes(searchQuery) || 
+                                      tutor.role.toLowerCase().includes(searchQuery);
+
+                const matchesFilters = checkedFilters.length === 0 || 
+                                       checkedFilters.some(filter => tutor.role.toLowerCase().includes(filter));
+
+                return matchesSearch && matchesFilters;
+            });
+
+            renderCatalog(filtered);
+        }
+        
+        // Хелпер для фильтрации по тегу с главной страницы
+        function filterTutorsByTag(tag) {
+             const checkbox = document.querySelector(`#exam-filters input[value="${tag}"]`);
+             if (checkbox) {
+                 checkbox.checked = true;
+                 filterTutors();
+             }
+        }
+
+        // Сброс фильтров
+        function resetFilters() {
+            document.getElementById('catalog-search').value = '';
+            document.querySelectorAll('#exam-filters input:checked').forEach(input => input.checked = false);
+            renderCatalog(tutors);
+        }
+
+
+        // Render Catalog
+        function renderCatalog(tutorsToRender) {
+            const grid = document.getElementById('tutors-grid');
+            const noResults = document.getElementById('no-results');
+
+            if (tutorsToRender.length === 0) {
+                grid.style.display = 'none';
+                noResults.classList.remove('hidden');
+            } else {
+                grid.style.display = 'grid';
+                noResults.classList.add('hidden');
+                grid.innerHTML = tutorsToRender.map(tutor => `
+                    <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden flex flex-col">
+                        <div class="p-6">
+                            <div class="flex items-start gap-4 mb-4">
+                                ${tutor.photoUrl 
+                                    ? `<img src="${tutor.photoUrl}" alt="${tutor.name}" class="w-16 h-16 rounded-full flex-shrink-0 object-cover border border-gray-100">` 
+                                    : `<div class="w-16 h-16 ${tutor.avatarColor} rounded-full flex-shrink-0 flex items-center justify-center text-xl font-bold text-gray-600">${tutor.name.charAt(0)}</div>`
+                                }
+                                <div>
+                                    <h3 class="font-bold text-blue-900 text-lg">${tutor.name}</h3>
+                                    <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1">
+                                        <span class="text-gray-400">${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <p class="font-bold text-blue-900 text-sm mb-1">${tutor.role}</p>
+                                <p class="text-gray-600 text-xs line-clamp-2 mb-2"><span class="font-semibold text-gray-700">О себе:</span> ${tutor.about}</p>
+                                <p class="text-gray-600 text-xs line-clamp-2"><span class="font-semibold text-gray-700">Опыт:</span> ${tutor.experience}</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                                <span class="font-bold text-gray-700 text-sm">Цена: ${tutor.price}</span>
+                                <button onclick="navigateTo('profile', ${tutor.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            lucide.createIcons();
+        }
+
+        // Render Profile
+        function renderProfile(id) {
+            const tutor = tutors.find(t => t.id === Number(id));
+            if (!tutor) return;
+
+            const content = document.getElementById('profile-content');
+            content.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-8 relative">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="flex-shrink-0 flex flex-col items-center">
+                            ${tutor.photoUrl 
+                                ? `<img src="${tutor.photoUrl}" alt="${tutor.name}" class="w-32 h-32 rounded-full mb-4 object-cover border-2 border-gray-100 shadow-sm">` 
+                                : `<div class="w-32 h-32 ${tutor.avatarColor} rounded-full mb-4 flex items-center justify-center text-4xl font-bold text-gray-600">${tutor.name.charAt(0)}</div>`
+                            }
+                            <h1 class="text-2xl font-bold text-blue-900 text-center">${tutor.name}</h1>
+                            <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1 mb-2">
+                                <span class="text-gray-400">${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                            <div>
+                                <h3 class="font-bold text-blue-900 text-sm mb-2">О себе</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">${tutor.about}</p>
+                            </div>
+                                <div>
+                                <h3 class="font-bold text-blue-900 text-sm mb-2">Опыт</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">${tutor.experience}</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-blue-900 text-sm mb-2">Предметы</h3>
+                                <p class="text-gray-600 text-sm">${tutor.role}</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-blue-900 text-sm mb-2">Цена</h3>
+                                <p class="text-gray-900 font-medium text-sm">${tutor.price}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100 text-center shadow-sm">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">Хотите заниматься с этим наставником?</h3>
+                    <p class="text-gray-600 mb-6">Свяжитесь с нашим менеджером, чтобы забронировать занятие.</p>
+                     <div class="flex justify-center items-center gap-4">
+                        <a href="https://t.me/ваш_менеджер" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#229ED9] hover:bg-[#1e8dbf] text-white" title="Написать в Telegram">
+                            <i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i>
+                        </a>
+                        <a href="https://wa.me/ваш_номер" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#25D366] hover:bg-[#20bd5a] text-white" title="Написать в WhatsApp">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </a>
+                         <a href="https://instagram.com/ваш_аккаунт" target="_blank" class="rounded px-2 py-2 social-icon-link bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Написать в Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
