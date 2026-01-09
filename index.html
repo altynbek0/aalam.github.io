@@ -525,29 +525,49 @@
                 avatarColor: "bg-purple-200",
                 calendarUrl: "https://cal.com/ta-22-ui2dsn/sat-verbal-azimbek",
                 photoUrl: "tutors_photos/AzimToktogaziev.jpg"
+            },
+            {
+                id: 10,
+                name: "Нуркыял Уланова",
+                rating: 0.0,
+                reviews: 0,
+                role: "Экзамены: ОРТ (Математика) на кыргызском",
+                about: "Студентка АУЦА.",
+                experience: "Решила 100% математики на орт, и помогу вам тоже достичь этого.",
+                price: "300 c/час",
+                avatarColor: "bg-purple-200",
+                calendarUrl: "https://cal.com/nurkyial-ulanova-mcowmx/орт-матем-нуркыял",
+                photoUrl: "tutors_photos/Nurkiyal.jpg"
+            },
+            {
+                id: 11,
+                name: "Оразбекова Аиша",
+                rating: 0.0,
+                reviews: 0,
+                role: "Экзамены: IELTS academic",
+                about: "Готовлю студентов к IELTS academic. Помогаю своим ученикам системно развивать все четыре навыка экзамена (Reading, Listening, Speaking, Writing), разбираться в критериях оценивания и уверенно достигать своего целевого балла. В работе делаю акцент на практику, академический английский и индивидуальный подход к каждому ученику. Также могу дать советы по поступлению и улучшению своего кейса.",
+                experience: "IELTS 7.5 (reading 9.0), ОРТ 233 (золотой сертификат), SAT 1450 (750 math, 700 verbal)",
+                price: "600 c/час",
+                avatarColor: "bg-purple-200",
+                calendarUrl: "https://cal.com/aisha-hcuiog/ielts-aisha",
+                photoUrl: "tutors_photos/Аиша.jpg"
             }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             
-            // --- НОВОЕ: Проверяем URL при загрузке страницы ---
-            // Если мы обновили страницу на ?view=catalog, нужно открыть каталог
             const urlParams = new URLSearchParams(window.location.search);
             const initialView = urlParams.get('view') || 'home';
             const initialParam = urlParams.get('param');
 
-            // Загружаем вид, но НЕ добавляем это в историю (true в конце)
             navigateTo(initialView, initialParam, true);
         });
 
         window.addEventListener('popstate', (event) => {
-            // Если есть сохраненное состояние, переходим к нему
             if (event.state && event.state.view) {
-                // Переходим, но НЕ добавляем в историю снова (true в конце), иначе зациклится
                 navigateTo(event.state.view, event.state.param, true);
             } else {
-                // Если состояния нет, значит мы вернулись в самое начало - на главную
                 navigateTo('home', null, true);
             }
         });
@@ -760,6 +780,7 @@
 </body>
 
 </html>
+
 
 
 
