@@ -49,6 +49,12 @@
         .h-150 { height: 35rem; }
 
         .scroll-mt-24 { scroll-margin-top: 6rem; }
+        .hide-scrollbar {
+            scrollbar-width: none; /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;        /* Chrome, Safari */
+        }
 
     </style>
 </head>
@@ -425,18 +431,6 @@
     <script>
         const tutors = [
             {
-                id: 15,
-                name: "Робия Умарбекова",
-                rating: 0.0,
-                reviews: 0,
-                role: "ОРТ (Математика и Русский Язык)",
-                about: "Мои ученики делают большой прогресс после моих курсов, так что и ты не забудь записаться ко мне.",
-                experience: "Основательница лучшего сообщества по ОРТ - ORT TITANS, набравшая на основном тесте 221 балл, а по проф.математике 131 балл. Олимпиадница, выигравшая районный и областной этапы республиканской олимпиады по математике. Призер международной олимпиады по математике совместно с Узбекистаном. Студентка Ала-Тоо по направлению комп.инженерия. Опыт работы 2 года",
-                price: "4500 cом",
-                avatarColor: "bg-blue-200",
-                photoUrl: "tutors_photos/Робия.jpg"   
-            },
-            {
                 id: 1,
                 name: "Иса Мамытов",
                 rating: 5.0,
@@ -446,7 +440,15 @@
                 experience: "3 место на республиканской олимпиаде по физике и ОРТ математика - 139",
                 price: "4000 cом",
                 avatarColor: "bg-blue-200",
-                photoUrl: "tutors_photos/Isa.jpg"   
+                photoUrl: "tutors_photos/Isa.jpg",
+                reviewsData: [
+                    {
+                        id: 1,
+                        rating: 5,
+                        text: "Наставник очень понимающий и чуткий. Во первых мне понравилось то что он он решил подстроиться под мои запросы, и понимая что я буду использовать физику для европейских экзаменов, добавил теорию и темы на английском. Обясняет очень понятно и готов был ответить на все мои вопросы )",
+                        author: "Феруза"
+                    }
+                ]  
             },
             {
                 id: 2,
@@ -459,18 +461,6 @@
                 price: "4800 cом",
                 avatarColor: "bg-green-200",
                 photoUrl: "tutors_photos/Nurdana.jpg"
-            },
-            {
-                id: 16,
-                name: "Робия Умарбекова",
-                rating: 0.0,
-                reviews: 0,
-                role: "Математика (Школьная)",
-                about: "Мои ученики делают большой прогресс после моих курсов, так что и ты не забудь записаться ко мне.",
-                experience: "Основательница лучшего сообщества по ОРТ - ORT TITANS, набравшая на основном тесте 221 балл, а по проф.математике 131 балл. Олимпиадница, выигравшая районный и областной этапы республиканской олимпиады по математике. Призер международной олимпиады по математике совместно с Узбекистаном. Студентка Ала-Тоо по направлению комп.инженерия. Опыт работы 2 года",
-                price: "2500 cом",
-                avatarColor: "bg-blue-200",
-                photoUrl: "tutors_photos/Робия.jpg"   
             },
             {
                 id: 3,
@@ -487,14 +477,22 @@
             {
                 id: 4,
                 name: "Касиет Доктурбаева",
-                rating: 0.0,
-                reviews: 0,
+                rating: 5,
+                reviews: 1,
                 role: "ОРТ (Математика)",
                 about: "Ответственный и терпеливый преподаватель, умею доступно объяснять материал и находить подход к каждому ученику. Ориентирована на понимание темы и стабильный прогресс.",
                 experience: "Обладательница Золотого Сертификата 2025. 233 балла. Первое место на областной 2024-2025, на районной 2024-2025. Финалистка национальной олимпиады по математике.",
                 price: "5000 cом",
                 avatarColor: "bg-pink-200",
-                photoUrl: "tutors_photos/Kasiet.jpg"
+                photoUrl: "tutors_photos/Kasiet.jpg",
+                reviewsData: [
+                    {
+                        id: 1,
+                        rating: 5,
+                        text: "Она вообще кайфуша 10/10",
+                        author: "Алия"
+                    }
+                ] 
             },
             {
                 id: 5,
@@ -528,7 +526,7 @@
                 role: "ОРТ (Математика и Русский Язык)",
                 about: "Обладатель Золотого Сертификата (2025). <br> Студент АУЦА.",
                 experience: "ОРТ 229. Участвовал в различных олимпиадах по математике.",
-                price: "4900 сом",
+                price: "3000 сом",
                 avatarColor: "bg-blue-200",
                 photoUrl: ""   
             },
@@ -741,6 +739,9 @@
                                 <div>
                                     <h3 class="font-bold text-blue-900 text-lg">${tutor.name}</h3>
                                     <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1">
+                                        <div class="flex text-yellow-400 text-sm">
+                                            ${'★'.repeat(tutor.rating)}${'☆'.repeat(5 - tutor.rating)}
+                                        </div>
                                         <span class="text-gray-400">${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
                                     </div>
                                 </div>
@@ -751,7 +752,7 @@
                                 <p class="text-gray-600 text-xs line-clamp-2"><span class="font-semibold text-gray-700">Опыт:</span> ${tutor.experience}</p>
                             </div>
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
-                                <span class="font-bold text-sm text-green-700"><p>Цена за курс: ${tutor.price}</p></span>
+                                <span class="font-bold text-sm"><p class="text-green-700 font-bold text-sm">Цена за курс: ${tutor.price}</p><p class="text-black-700 font-bold text-sm">Бесплатный пробный урок</p></span>
                                 <button onclick="navigateTo('profile', ${tutor.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
                                     Подробнее
                                 </button>
@@ -763,6 +764,56 @@
             
             lucide.createIcons();
         }
+
+
+        function renderReviewsCarousel(tutor) {
+            const reviews = tutor.reviewsData || [];
+
+            if (!reviews.length) {
+                return `
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+                        <h3 class="text-xl font-bold text-blue-900 mb-7">Отзывы студентов</h3>
+                        <p class="text-gray-500 text-sm">У этого наставника пока нет отзывов. Вы можете стать первым!</p>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 mb-8">
+                    <div class="flex items-center justify-between mb-7">
+                        <h3 class="text-xl md:text-2xl font-bold text-blue-900">Отзывы студентов</h3>
+                        <div class="flex items-center text-yellow-500 text-xs gap-1">
+                            <span class="text-gray-700 font-semibold">${tutor.rating.toFixed(1)} из 5.0</span>
+                            <span class="text-gray-400">(${tutor.reviews} отзывов)</span>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <!-- Контейнер с горизонтальной прокруткой -->
+                        <div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory"
+                            style="-webkit-overflow-scrolling: touch;">
+                            ${reviews.map((review, index) => `
+                                <div class="min-w-[260px] max-w-xs bg-blue-50 rounded-2xl p-5 flex-shrink-0 snap-center border border-blue-100">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <div class="flex text-yellow-400 text-sm">
+                                            ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                                        </div>
+                                        <span class="text-[11px] text-gray-500">Отзыв #${index + 1}</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm italic mb-3">"${review.text}"</p>
+                                    <p class="text-gray-600 text-xs font-semibold">- ${review.author}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        }
+
+
+
+
 
         function renderProfile(id) {
             const tutor = tutors.find(t => t.id === Number(id));
@@ -779,7 +830,12 @@
                             }
                             <h1 class="text-2xl font-bold text-blue-900 text-center">${tutor.name}</h1>
                             <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1 mb-2">
-                                <span class="text-gray-400">${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
+                                <div class="flex text-yellow-400 text-sm">
+                                    ${'★'.repeat(tutor.rating)}${'☆'.repeat(5 - tutor.rating)}
+                                </div>
+                                           
+                                
+                                <span class="text-gray-400"> ${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
                             </div>
                         </div>
 
@@ -799,6 +855,7 @@
                             <div>
                                 <h3 class="font-bold text-blue-900 text-sm mb-2">Цена за курс</h3>
                                 <p class="text-green-900 font-bold text-sm">${tutor.price}</p>
+                                <p class="text-black-900 font-bold text-sm">Беслатный пробный урок</p>
                             </div>
                         </div>
                     </div>
@@ -857,13 +914,19 @@
                                 <a href="https://t.me/aalam_edu" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-9 rounded-xl transition-all shadow-lg hover:shadow-blue-200 active:scale-95 text-lg">
                                     Хочу на курс
                                 </a>
+                                <a href="https://t.me/aalam_edu" class="px-7 py-3 rounded-xl font-bold text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-100 transition-all text-center flex items-center cursor-pointer">
+                                    Пробный урок
+                                </a>
                             </div>
+                            
                         
             
                             
                         </div>
                     </div>
                 </div>
+
+                ${renderReviewsCarousel(tutor)}
 
                 <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100 text-center shadow-sm">
                     <h3 class="text-xl font-bold text-blue-900 mb-4">Нужна помощь в подборе наставника?</h3>
