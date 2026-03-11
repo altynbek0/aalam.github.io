@@ -355,7 +355,7 @@ async function renderLanguageProfile(id) {
                 </li>`).join('')}
             </ul>
             <div class="flex flex-wrap gap-4">
-                <a href="https://t.me/aalam_edu" target="_blank" class="bg-blue-600 hover:bg-green-700 text-white font-bold py-3 px-9 rounded-xl transition-all shadow-lg text-lg">Записаться</a>
+                <a href="https://t.me/aalam_edu" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-9 rounded-xl transition-all shadow-lg text-lg">Записаться</a>
                 <a href="https://t.me/aalam_edu" target="_blank" class="px-7 py-3 rounded-xl font-bold text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all">Пробный урок</a>
             </div>
         </div>
@@ -552,3 +552,4 @@ function renderContactBlock(
         </div>`;
 
 }
+
