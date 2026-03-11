@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aalam - Платформа наставников</title>
     <meta name="description" content="Найдите лучшего наставника для подготовки к экзаменам ORT, SAT, IELTS и олимпиадам. Индивидуальные занятия онлайн с экспертами, сдавшими экзамены на высшие баллы. Платформа AALAM.">
-    
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.aalamedu.com/">
     <meta property="og:title" content="Aalam - Платформа наставников">
     <meta property="og:description" content="Подготовка к ORT, SAT, IELTS с лучшими наставниками.">
     <meta property="og:image" content="https://www.aalamedu.com/img/favicon.png">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta name="robots" content="max-image-preview:large">
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,30 +27,22 @@
       "logo": "https://www.aalamedu.com/img/favicon.png"
     }
     </script>
-    
+
     <style>
         @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
+            0%   { transform: translate(0px, 0px) scale(1); }
+            33%  { transform: translate(30px, -50px) scale(1.1); }
+            66%  { transform: translate(-20px, 20px) scale(0.9); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
+        .animate-blob { animation: blob 7s infinite; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
-        
-        .w-150 { width: 35rem; }
-        .h-150 { height: 35rem; }
-
+        .w-150  { width: 35rem; }
+        .h-150  { height: 35rem; }
         .scroll-mt-24 { scroll-margin-top: 6rem; }
-        .hide-scrollbar {
-            scrollbar-width: none; /* Firefox */
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;        /* Chrome, Safari */
-        }
+        .hide-scrollbar { scrollbar-width: none; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-white text-gray-800 flex flex-col min-h-screen">
@@ -59,9 +51,7 @@
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home'); scrollToSection('hero')">
                 <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
-                <div class="flex flex-col leading-none">
-                    <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
-                </div>
+                <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
             </div>
 
             <nav class="hidden md:flex items-center gap-10">
@@ -74,7 +64,7 @@
                 <button onclick="navigateTo('catalog')" class="px-6 py-2 rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all hover:shadow-lg">
                     Найти Наставника
                 </button>
-                <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="px-6 py-2 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all text-center flex items-center cursor-pointer">
+                <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="px-6 py-2 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all">
                     Стать наставником
                 </button>
             </div>
@@ -93,37 +83,34 @@
 
     <main class="flex-grow relative">
 
+        
         <section id="view-home" class="page-section active">
+
             <div id="hero" class="bg-gradient-to-br from-blue-50 via-blue-100 to-white pt-12 pb-20 relative overflow-hidden scroll-mt-24">
                 <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
                     <div class="md:w-1/2 mb-10 md:mb-0">
                         <div class="absolute top-0 left-0 -translate-x-10 -translate-y-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
                         <i data-lucide="graduation-cap" class="w-12 h-12 text-gray-900 mb-4 transform -rotate-12"></i>
                         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                             Поступи в топ-университет или сдай экзамен на <span class="text-blue-600">высокий балл</span>
+                            Поступи в топ-университет или сдай экзамен на <span class="text-blue-600">высокий балл</span>
                         </h1>
                         <div class="bg-blue-100/50 border border-blue-200 p-4 rounded-lg inline-block mb-8 max-w-md">
                             <p class="text-blue-900 font-medium text-sm">Подготовка к IELTS, SAT, олимпиадам и сопровождение при поступлении в лучшие вузы мира от опытных наставников.</p>
                         </div>
-                        
                         <div>
                             <button onclick="navigateTo('catalog')" class="px-8 py-4 text-sm bg-blue-600 text-white rounded-full font-bold shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center">
                                 <i data-lucide="search" class="w-5 h-5 mr-2"></i>
                                 НАЙТИ НАСТАВНИКА
                             </button>
                         </div>
-
                     </div>
-                    
-                    <div class="hidden md:flex md:w-1/2 justify-center relative ">
+                    <div class="hidden md:flex md:w-1/2 justify-center relative">
                         <div class="relative w-250 h-250 md:w-96 md:h-96 flex items-center justify-center">
-                            <img src="main.jpg" alt="Школьница готовится к экзаменам с наставником онлайн на платформе AALAM" class=" rounded-3xl " onerror="this.style.display='none'">
+                            <img src="img/girl.jpg" alt="Школьница готовится к экзаменам с наставником онлайн на платформе AALAM" class="rounded-3xl" onerror="this.style.display='none'">
                         </div>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="py-16 bg-white">
                 <div class="container mx-auto px-4">
@@ -155,19 +142,23 @@
             <div class="py-16 bg-gray-50">
                 <div class="container mx-auto px-12 max-w-4xl space-y-12">
                     <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Языки:</h2>
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span onclick="navigateTo('catalog'); setTimeout(() => { switchMode('languages'); const r = document.querySelector('input[name=mode][value=languages]'); if(r) r.checked=true; }, 50)" class="px-6 py-2 rounded-full bg-green-600 text-white font-medium cursor-pointer shadow-md hover:bg-green-700 transition-colors">Кыргызский язык</span>
+                        </div>
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Популярные Экзамены:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('ОРТ'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">ОРТ</span>
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('SAT'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">SAT</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('ОРТ'), 50)"   class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">ОРТ</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('SAT'), 50)"   class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">SAT</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('IELTS'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">IELTS</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('TOEFL'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">TOEFL</span>
                         </div>
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Предметные Олимпиады:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Математика'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Математика</span>
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Химия'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Химия</span>
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Физика'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Физика</span>
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Биология'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Биология</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Математика'), 50)"  class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Математика</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Химия'), 50)"       class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Химия</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Физика'), 50)"      class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Физика</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Биология'), 50)"   class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Биология</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('Информатика'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">Информатика</span>
                         </div>
                     </div>
@@ -178,49 +169,33 @@
                 <div class="container mx-auto px-4">
                     <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-16 uppercase tracking-wider">Почему выбирают нас?</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-50 hover:shadow-xl  transition-all group">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                                <span class="text-2xl group-hover:filter ">👨‍🏫</span>
-                            </div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-50 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><span class="text-2xl">👨‍🏫</span></div>
                             <h4 class="font-bold mb-3">Экспертные наставники</h4>
                             <p class="text-slate-500 text-sm leading-relaxed">Только наставники с проверенными высокими результатами.</p>
                         </div>
-
-
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-50 hover:shadow-xl transition-all group">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                                <span class="text-2xl group-hover:filter">🎓</span>
-                            </div>
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><span class="text-2xl">🎓</span></div>
                             <h4 class="font-bold mb-3">Менторы из зарубежных вузов</h4>
                             <p class="text-slate-500 text-sm leading-relaxed">От первого лица расскажут об учебе и жизни за границей.</p>
                         </div>
-
-                        
-
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-50 hover:shadow-xl transition-all group">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                                <span class="text-2xl group-hover:filter">📋</span>
-                            </div>
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><span class="text-2xl">📋</span></div>
                             <h4 class="font-bold mb-3">Индивидуальный план поступления</h4>
                             <p class="text-slate-500 text-sm leading-relaxed">Построим стратегию именно под ваши цели и возможности.</p>
                         </div>
-
-
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-50 hover:shadow-xl transition-all group">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                                <span class="text-2xl group-hover:filter">🤝</span>
-                            </div>
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><span class="text-2xl">🤝</span></div>
                             <h4 class="font-bold mb-3">Гибкое расписание</h4>
                             <p class="text-slate-500 text-sm leading-relaxed">Учись онлайн в удобное время.</p>
                         </div>
-                        
                     </div>
                 </div>
-            </section>  
-            
+            </section>
+
             <hr>
-            
-             <section id="cta_section" class="py-20 px-4">
+
+            <section id="cta_section" class="py-20 px-4">
                 <div class="max-w-5xl mx-auto bg-white rounded-[2.5rem] p-12 text-center shadow-2xl shadow-blue-50 relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10">
                         <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 9l11 7 11-7-11-7zM1 18.46L12 24l11-5.54V11.5L12 17 1 11.5v6.96z"/></svg>
@@ -228,15 +203,9 @@
                     <h2 class="text-3xl font-bold mb-4">Сдал на высокий балл? Учишься за границей?</h2>
                     <p class="text-slate-500 mb-10">Стань наставником или ментором для других ребят, став частью Aalam. <br> Делись знаниями, помогай другим и зарабатывай.</p>
                     <div class="flex justify-center items-center gap-6 mt-8">
-                        <a href="https://t.me/aalam_edu" target="_blank" class="social-icon-link bg-[#229ED9] rounded px-2 py-2 hover:bg-[#1e8dbf] text-white" title="Написать в Telegram">
-                            <i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i>
-                        </a>
-                        <a href="https://wa.me/996704500520" target="_blank" class="social-icon-link bg-[#25D366] rounded px-2 py-2 hover:bg-[#20bd5a] text-white" title="Написать в WhatsApp">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://www.instagram.com/aalamedu?igsh=cDVzeGRtMDVheHgx" target="_blank" class="social-icon-link rounded px-2 py-2 bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Написать в Instagram">
-                            <i data-lucide="instagram" class="w-6 h-6"></i>
-                        </a>
+                        <a href="https://t.me/aalam_edu" target="_blank" class="bg-[#229ED9] rounded px-2 py-2 hover:bg-[#1e8dbf] text-white" title="Telegram"><i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i></a>
+                        <a href="https://wa.me/996704500520" target="_blank" class="bg-[#25D366] rounded px-2 py-2 hover:bg-[#20bd5a] text-white" title="WhatsApp"><i data-lucide="phone" class="w-6 h-6"></i></a>
+                        <a href="https://www.instagram.com/aalamedu" target="_blank" class="rounded px-2 py-2 bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Instagram"><i data-lucide="instagram" class="w-6 h-6"></i></a>
                     </div>
                 </div>
             </section>
@@ -275,68 +244,66 @@
                                 <h3 class="font-bold text-blue-900 text-lg uppercase tracking-wide">Фильтры</h3>
                                 <button onclick="resetFilters()" class="text-xs text-blue-600 hover:underline">Сбросить</button>
                             </div>
-                            
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="font-bold text-blue-900 text-sm mb-3">Направление:</h4>
                                     <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3">
-                                    <label>
-                                        <input type="radio" name="mode" value="tutors" checked onchange="switchMode('tutors')">
-                                        Экзамены
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="mode" value="mentors" onchange="switchMode('mentors')">
-                                        Поступление
-                                    </label>
+                                        <label><input type="radio" name="mode" value="tutors"    checked onchange="switchMode('tutors')"> Экзамены</label>
+                                        <label><input type="radio" name="mode" value="languages"         onchange="switchMode('languages')"> Языки</label>
+                                        <label><input type="radio" name="mode" value="mentors"           onchange="switchMode('mentors')"> Поступление</label>
+                                    </div>
+
+                                    <div id="language-filters-wrapper" style="display:none;">
+                                        <h4 class="font-bold text-blue-900 text-sm mb-3">Язык:</h4>
+                                        <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="language-filters">
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Кыргызский" class="accent-blue-600" onchange="filterCatalog()"><span>Кыргызский</span></label>
+                                        </div>
                                     </div>
 
                                     <div id="country-filters" style="display:none;">
                                         <h4 class="font-bold text-blue-900 text-sm mb-3">Страны:</h4>
                                         <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3">
-                                            <label><input type="checkbox" value="Венгрия" onchange="filterCatalog()"> Венгрия</label>
-                                            <label><input type="checkbox" value="Корея" onchange="filterCatalog()"> Корея</label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Венгрия" class="accent-blue-600" onchange="filterCatalog()"><span>Венгрия</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Корея"   class="accent-blue-600" onchange="filterCatalog()"><span>Корея</span></label>
                                         </div>
                                     </div>
-                                    
+
                                     <div id="exam-filters-wrapper">
                                         <h4 class="font-bold text-blue-900 text-sm mb-3">Экзамены:</h4>
                                         <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="exam-filters">
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="ОРТ" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>ОРТ</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="SAT" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>SAT</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="IELTS" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>IELTS</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="TOEFL" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>TOEFL</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="ОРТ"   class="accent-blue-600" onchange="filterCatalog()"><span>ОРТ</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="SAT"   class="accent-blue-600" onchange="filterCatalog()"><span>SAT</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="IELTS" class="accent-blue-600" onchange="filterCatalog()"><span>IELTS</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="TOEFL" class="accent-blue-600" onchange="filterCatalog()"><span>TOEFL</span></label>
                                         </div>
                                     </div>
-                                    
+
                                     <div id="olympiad-filters-wrapper">
                                         <h4 class="font-bold text-blue-900 text-sm mb-3">Олимпиады:</h4>
                                         <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="olympiad-filters">
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Математика" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>Математика</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Физика" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>Физика</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Химия" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>Химия</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Биология" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>Биология</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Информатика" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>Информатика</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="История" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>История</span></label>
-                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="География" class="rounded text-blue-600 accent-blue-600" onchange="filterCatalog()"><span>География</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Математика"  class="accent-blue-600" onchange="filterCatalog()"><span>Математика</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Физика"      class="accent-blue-600" onchange="filterCatalog()"><span>Физика</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Химия"       class="accent-blue-600" onchange="filterCatalog()"><span>Химия</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Биология"   class="accent-blue-600" onchange="filterCatalog()"><span>Биология</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Информатика" class="accent-blue-600" onchange="filterCatalog()"><span>Информатика</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="История"    class="accent-blue-600" onchange="filterCatalog()"><span>История</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="География"  class="accent-blue-600" onchange="filterCatalog()"><span>География</span></label>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="lg:w-3/4">
-                        <div id="tutors-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 content-start">
-                        </div>
-                         <div id="no-results" class="hidden text-center py-12 text-gray-500">
-                            По вашему запросу ничего не найдено.
-                        </div>
+                        <div id="tutors-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 content-start"></div>
+                        <div id="no-results" class="hidden text-center py-12 text-gray-500">По вашему запросу ничего не найдено.</div>
                     </div>
                 </div>
             </div>
         </section>
 
+    
         <section id="view-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
@@ -344,19 +311,31 @@
                     <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
                     <span>Каталог</span>
                 </div>
-
                 <div id="profile-content"></div>
             </div>
         </section>
 
+       
         <section id="view-mentor-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
-                    <span class="font-semibold text-blue-900">Наставник</span>
+                    <span class="font-semibold text-blue-900">Ментор</span>
                     <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
                     <span>Каталог</span>
                 </div>
                 <div id="mentor-profile-content"></div>
+            </div>
+        </section>
+
+        
+        <section id="view-language-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
+                    <span class="font-semibold text-blue-900">Языки</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
+                    <span>Каталог</span>
+                </div>
+                <div id="language-profile-content"></div>
             </div>
         </section>
 
@@ -365,59 +344,38 @@
             <div class="prose prose-blue max-w-none text-gray-700 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h3>1. Введение.</h3>
                 <p>Мы AALAM серьезно относимся к конфиденциальности ваших данных. Эта Политика объясняет, какую информацию мы собираем, когда вы пользуетесь нашим сайтом aalamedu.com, и как мы ее используем.</p>
-                <p>Используя наш сайт и бронируя занятия с наставниками, вы соглашаетесь с условиями этой Политики. Мы стараемся писать просто и понятно, без сложных юридических терминов.</p>
+                <p>Используя наш сайт и бронируя занятия с наставниками, вы соглашаетесь с условиями этой Политики.</p>
 
                 <h3>2. Какую информацию мы собираем и как.</h3>
-                <p>Мы собираем только тот минимум информации, который необходим для организации вашего обучения. Данные поступают к нам двумя способами:</p>
+                <p>Мы собираем только тот минимум информации, который необходим для организации вашего обучения:</p>
                 <ul>
-                    <li><strong>Информация, которую вы предоставляете сами:</strong> Когда вы бронируете время наставника через встроенный календарь (Calendly) или связываетесь с менеджером, вы указываете:
-                        <ul>
-                            <li>Ваше имя;</li>
-                            <li>Контактный номер телефона (для связи в WhatsApp/Telegram);</li>
-                            <li>Адрес электронной почты (если применимо);</li>
-                            <li>Информацию о желаемом предмете или цели занятия.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Автоматически собираемая информация:</strong> Когда вы посещаете сайт, мы можем собирать обезличенные технические данные, такие как тип вашего устройства, браузера и операционной системы. Это помогает нам оптимизировать работу сайта. Мы также используем файлы cookie для улучшения вашего пользовательского опыта.</li>
+                    <li><strong>Информация, которую вы предоставляете сами:</strong> имя, контактный номер телефона, адрес электронной почты, информация о желаемом предмете или цели занятия.</li>
+                    <li><strong>Автоматически собираемая информация:</strong> тип устройства, браузера и операционной системы. Мы также используем файлы cookie для улучшения пользовательского опыта.</li>
                 </ul>
 
                 <h3>3. Зачем мы используем ваши данные.</h3>
-                <p>Мы используем собранную информацию исключительно для следующих целей:</p>
                 <ul>
-                    <li><strong>Организация занятий:</strong> Чтобы подтвердить вашу бронь и соединить вас с выбранным наставником.</li>
-                    <li><strong>Коммуникация и Оплата:</strong> Наш менеджер использует ваш номер телефона для связи с вами в мессенджерах (WhatsApp/Telegram) для подтверждения деталей бронирования, предоставления реквизитов для оплаты и отправки ссылки на видеовстречу (Zoom).</li>
-                    <li><strong>Поддержка:</strong> Чтобы отвечать на ваши вопросы и решать возникающие проблемы.</li>
-                    <li><strong>Улучшение сервиса:</strong> Анализ обезличенных данных помогает нам понять, как сделать платформу удобнее.</li>
+                    <li><strong>Организация занятий:</strong> Чтобы подтвердить бронь и соединить вас с наставником.</li>
+                    <li><strong>Коммуникация и Оплата:</strong> Менеджер использует ваш номер для связи в WhatsApp/Telegram.</li>
+                    <li><strong>Поддержка:</strong> Чтобы отвечать на вопросы и решать проблемы.</li>
+                    <li><strong>Улучшение сервиса:</strong> Анализ обезличенных данных.</li>
                 </ul>
 
                 <h3>4. Кому мы передаем ваши данные.</h3>
-                <p>Мы не продаем и не передаем ваши личные данные третьим лицам в маркетинговых целях. Доступ к вашим данным имеют:</p>
-                <ul>
-                    <li><strong>Наставники:</strong> Мы передаем ваше имя и контактные данные (например, номер телефона для связи или email) <strong>только тому наставнику, которого вы выбрали и оплатили</strong>, чтобы он мог провести с вами занятие.</li>
-                    <li><strong>Сторонние сервисы:</strong> Мы используем сервис <strong>Calendly</strong> для отображения расписания и бронирования. Когда вы вводите данные в форму календаря на нашем сайте, они обрабатываются Calendly в соответствии с их собственной Политикой конфиденциальности.</li>
-                    <li><strong>По требованию закона:</strong> Мы можем раскрыть информацию, если этого требует законодательство Кыргызской Республики.</li>
-                </ul>
+                <p>Мы не продаем и не передаем ваши личные данные третьим лицам в маркетинговых целях. Доступ имеют: выбранный вами наставник, сервис Calendly (для бронирования), а также — по требованию закона.</p>
 
                 <h3>5. Хранение и безопасность данных.</h3>
-                <p>Мы принимаем разумные и необходимые меры для защиты ваших данных от несанкционированного доступа. Наш сайт использует защищенное соединение (SSL-сертификат), что гарантирует шифрование данных при их передаче от вас к нам.</p>
-                <p>В настоящее время, на этапе запуска платформы, ваши контактные данные обрабатываются менеджерами платформы вручную для организации процесса оплаты и связи с наставниками.</p>
+                <p>Сайт использует защищенное соединение (SSL), что гарантирует шифрование данных при передаче.</p>
 
                 <h3>6. Ваши права.</h3>
-                <p>Вы имеете право:</p>
-                <ul>
-                    <li>Узнать, какие ваши данные мы храним.</li>
-                    <li>Попросить нас изменить или удалить ваши личные данные из нашей базы.</li>
-                </ul>
-                <p>Чтобы воспользоваться этими правами, просто напишите нашему менеджеру в любом удобном мессенджере, указанном на сайте.</p>
+                <p>Вы имеете право узнать, какие данные мы храним, и попросить изменить или удалить их. Просто напишите нашему менеджеру в любом удобном мессенджере.</p>
 
                 <h3>7. Изменения в Политике.</h3>
-                <p>Мы можем время от времени обновлять эту Политику конфиденциальности по мере развития нашей платформы. Актуальная версия всегда будет доступна на этой странице.</p>
+                <p>Мы можем обновлять эту Политику. Актуальная версия всегда будет доступна на этой странице.</p>
 
                 <h3>8. Контакты.</h3>
-                <p>Если у вас есть вопросы по поводу этой Политики конфиденциальности, пожалуйста, свяжитесь с нами через мессенджеры, ссылки на которые доступны в разделе "Контакты" или в подвале сайта.</p>
-                <p class="text-sm text-gray-500 mt-8">
-                    <em>Дата последнего обновления: Декабрь 2026 г.</em>
-                </p>
+                <p>Если у вас есть вопросы, свяжитесь с нами через мессенджеры в разделе «Контакты» или в подвале сайта.</p>
+                <p class="text-sm text-gray-500 mt-8"><em>Дата последнего обновления: Декабрь 2026 г.</em></p>
             </div>
         </section>
 
@@ -428,617 +386,39 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home'); scrollToSection('hero')">
                     <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
-                    <div class="flex flex-col leading-none">
-                        <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
-                    </div>
+                    <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
                 </div>
                 <div class="flex flex-col gap-3 text-sm text-gray-600">
                     <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="text-left hover:text-blue-600">Стать Наставником</button>
+                    <button onclick="navigateTo('home'); scrollToSection('why_we_section')" class="text-left hover:text-blue-600">Почему мы?</button>
                     <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="text-left hover:text-blue-600">Наша Миссия</button>
                     <button onclick="navigateTo('privacy')" class="text-left hover:text-blue-600">Политика конфиденциальности</button>
                 </div>
                 <div class="flex flex-col gap-3 text-sm text-gray-600">
-                    <a href="https://www.instagram.com/aalamedu?igsh=cDVzeGRtMDVheHgx" class="flex items-center gap-2 hover:text-pink-600"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
-                    <a href="https://t.me/aalamedu" class="flex items-center gap-2 hover:text-blue-600"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
-                    <a href="https://wa.me/996704500520" class="flex items-center gap-2 hover:text-green-600"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/aalamedu" target="_blank" class="flex items-center gap-2 hover:text-pink-600"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
+                    <a href="https://t.me/aalamedu" target="_blank" class="flex items-center gap-2 hover:text-blue-600"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
+                    <a href="https://wa.me/996704500520" target="_blank" class="flex items-center gap-2 hover:text-green-600"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</a>
                 </div>
-                 <div class="flex flex-col items-start md:items-end justify-between h-full">
-                    <i data-lucide="arrow-up" class="w-6 h-6 text-gray-400 mb-4 cursor-pointer hover:text-blue-600" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></i>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aalamedu.team@gmail.com" target="_blank" class="text-gray-500 text-xs underline decoration-gray-300 hover:text-blue-600">aalamedu.team@gmail.com</a>
+                <div class="flex flex-col items-start md:items-end justify-between h-full">
+                    <i data-lucide="arrow-up" class="w-6 h-6 text-gray-400 mb-4 cursor-pointer hover:text-blue-600" onclick="window.scrollTo({top:0,behavior:'smooth'})"></i>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aalamedu.team@gmail.com" target="_blank" class="text-gray-500 text-xs underline decoration-gray-300 hover:text-blue-600"><span class="__cf_email__" data-cfemail="3150505d505c5455441f4554505c71565c50585d1f525e5c">aalamedu.team@gmail.com</span></a>
                 </div>
             </div>
             <div class="border-t border-blue-200 pt-8 text-center">
                 <p class="text-gray-400 text-xs">© 2026 AALAM. Все права защищены.</p>
-                <a href="регламент.pdf" target="_blank"><button class="text-gray-400 text-xs underline gap-2 hover:text-gray-600 mt-2">Регламент Платформы</button></a>
+                <a href="регламент.pdf" target="_blank"><button class="text-gray-400 text-xs underline hover:text-gray-600 mt-2">Регламент Платформы</button></a>
             </div>
         </div>
     </footer>
 
 
-    <script>
-        const tutors = [
-            { id: 1, name: "Иса Мамытов", rating: 5.0, reviews: 1, role: "Физика", about: "Я верю в твой успех и помогу тебе достичь успехов на олимпиадах по физике и математике ОРТ", experience: "3 место на республиканской олимпиаде по физике и ОРТ математика - 139", price: "3500 cом", avatarColor: "bg-blue-200", photoUrl: "tutors_photos/Isa.jpg", reviewsData: [ { id: 1, rating: 5, text: "Наставник очень понимающий и чуткий. Во первых мне понравилось то что он он решил подстроиться под мои запросы, и понимая что я буду использовать физику для европейских экзаменов, добавил теорию и темы на английском. Обясняет очень понятно и готов был ответить на все мои вопросы )", author: "Феруза" } ] },
-            { id: 15, name: "Нурсултан Увалиев", rating: 0.0, reviews: 0, role: "SAT (Математика)", about: "Мой балл на SAT - 1530 баллов, из которых <b> 800 </b> (максимальный балл) на математике. Научу тебя как понимать суть задач, наработать скорость и покажу все лайфхаки.", experience: "Olympiad League - 1 год. <br> ProMed - 3 месяца. <br> Supernova- 2 месяца.", price: "3000 cом", avatarColor: "bg-blue-200", photoUrl: "Нурс.jpg" },
-            { id: 2, name: "Нурдана Жусупбекова", rating: 0.0, reviews: 0, role: "IELTS", about: "Мне 19, поступаю в США, учусь и работаю. Профессионально занимаюсь теннисом.", experience: "IELTS 8.0, 220 ОРТ, 1510 SAT", price: "3500 cом", avatarColor: "bg-green-200", photoUrl: "tutors_photos/Nurdana.jpg" },
-            { id: 3, name: "Курманова Аймира", rating: 0.0, reviews: 0, role: "IELTS", about: "Обучаюсь на третьем курсе Инновационного колледжа АУЦА направления \"Экология и Энергетическая Эффективность\".", experience: "IELTS 8.0, тьютор по математическому анализу в Инновационном колледже при АУЦА, преподавала физику и химию.", price: "3500 cом", avatarColor: "bg-purple-200", photoUrl: "" },
-            { id: 4, name: "Касиет Доктурбаева", rating: 5.0, reviews: 1, role: "ОРТ (Математика)", about: "Ответственный и терпеливый преподаватель, умею доступно объяснять материал и находить подход к каждому ученику. Ориентирована на понимание темы и стабильный прогресс.", experience: "Обладательница Золотого Сертификата 2025. 233 балла. Первое место на областной 2024-2025, на районной 2024-2025. Финалистка национальной олимпиады по математике.", price: "4000 cом", avatarColor: "bg-pink-200", photoUrl: "tutors_photos/Kasiet.jpg", reviewsData: [ { id: 1, rating: 5, text: "Она вообще кайфуша 10/10", author: "Алия" } ] },
-            { id: 16, name: "Нурсултан Увалиев", rating: 0.0, reviews: 0, role: "Биология", about: "Как человек, который выиграл большое количество олимпиад и с большим опытом работы, я помогу тебе выиграть республиканскую олимпиаду и пройти на IBO (International Biology Olympiad). Сам завоевывал бронзовую медаль на IBO и третье место на Республиканской Олимпиаде.", experience: "Olympiad League - 1 год. <br> ProMed - 3 месяца. <br> Supernova- 2 месяца.", price: "3800 cом", avatarColor: "bg-blue-200", photoUrl: "Нурс.jpg" },
-            { id: 5, name: "Азим Токтогазиев", rating: 0.0, reviews: 0, role: "Английский язык", about: "Подготовлю к SAT и Республиканской олимпиаде. Даю не только знания, но и систему: от стратегии до психологии. Учу набирать высшие баллы, опираясь на собственный опыт подготовки без менторов.", experience: "IELTS: 7.5 (Reading: 9.0, Listening: 8.5). SAT: 1480 (Math: 780, Verbal: 700). Школьная республиканская олимпиада по английскому языку: Top-10 (9-е место в республике); победитель школьного, городского и областного этапов (1-е место). Республиканская олимпиада ZEEN 2025: победитель (1-е место). Опыт преподавания: вёл занятия в волонтёрских образовательных проектах.", price: "3500 cом", avatarColor: "bg-purple-200", photoUrl: "tutors_photos/AzimToktogaziev.jpg" },
-            { id: 6, name: "Иса Мамытов", rating: 0.0, reviews: 0, role: "ОРТ (Математика)", about: "Я верю в твой успех и помогу тебе достичь успехов на олимпиадах по физике и математике ОРТ", experience: "3 место на республиканской олимпиаде по физике и ОРТ математика - 139", price: "4000 cом", avatarColor: "bg-blue-200", photoUrl: "tutors_photos/Isa.jpg" },
-            { id: 8, name: "Азим Токтогазиев", rating: 0.0, reviews: 0, role: "SAT (Verbal) на кыргызском", about: "Подготовлю к SAT и Республиканской олимпиаде. Даю не только знания, но и систему: от стратегии до психологии. Учу набирать высшие баллы, опираясь на собственный опыт подготовки без менторов.", experience: "IELTS: 7.5 (Reading: 9.0, Listening: 8.5). SAT: 1480 (Math: 780, Verbal: 700). Школьная республиканская олимпиада по английскому языку: Top-10 (9-е место в республике); победитель школьного, городского и областного этапов (1-е место). Республиканская олимпиада ZEEN 2025: победитель (1-е место). Опыт преподавания: вёл занятия в волонтёрских образовательных проектах.", price: "3500 cом", avatarColor: "bg-purple-200", photoUrl: "tutors_photos/AzimToktogaziev.jpg" },
-            { id: 9, name: "Нуркыял Уланова", rating: 0.0, reviews: 0, role: "ОРТ (Математика) на кыргызском", about: "Студентка АУЦА.", experience: "Решила 100% математики на орт, и помогу вам тоже достичь этого.", price: "3800 cом", avatarColor: "bg-purple-200", photoUrl: "tutors_photos/Nurkiyal.jpg" },
-            { id: 10, name: "Оразбекова Аиша", rating: 0.0, reviews: 0, role: "IELTS academic", about: "Готовлю студентов к IELTS academic. Помогаю своим ученикам системно развивать все четыре навыка экзамена (Reading, Listening, Speaking, Writing), разбираться в критериях оценивания и уверенно достигать своего целевого балла. В работе делаю акцент на практику, академический английский и индивидуальный подход к каждому ученику. Также могу дать советы по поступлению и улучшению своего кейса.", experience: "IELTS 7.5 (reading 9.0), ОРТ 233 (золотой сертификат), SAT 1450 (750 math, 700 verbal)", price: "3500 сом", avatarColor: "bg-purple-200", photoUrl: "tutors_photos/Аиша.jpg" },
-            { id: 11, name: "Азим Абдылдаев", rating: 0.0, reviews: 0, role: "Биология", about: "Я биолог с успешным олимпиадным бэкграундом. Доказал глубину своих знаний на практике, отлично выступив на Республиканской и Национальной олимпиадах.", experience: "2-е место на областной. Серебро на националке. Серебро на BBO.", price: "2800 сом", avatarColor: "bg-pink-200", photoUrl: "tutors_photos/AzimAbdyldayev.jpg" },
-            { id: 12, name: "Касиет Доктурбаева", rating: 0.0, reviews: 0, role: "Математика", about: "Ответственный и терпеливый преподаватель, умею доступно объяснять материал и находить подход к каждому ученику. Ориентирована на понимание темы и стабильный прогресс.", experience: "Обладательница Золотого Сертификата 2025. 233 балла. Первое место на областной 2024-2025, на районной 2024-2025. Финалистка национальной олимпиады по математике.", price: "3800 сом", avatarColor: "bg-pink-200", photoUrl: "tutors_photos/Kasiet.jpg" },
-            { id: 13, name: "Азим Токтогазиев", rating: 0.0, reviews: 0, role: "SAT (Математика) на кыргызском", about: "Подготовлю к SAT и Республиканской олимпиаде. Даю не только знания, но и систему: от стратегии до психологии. Учу набирать высшие баллы, опираясь на собственный опыт подготовки без менторов.", experience: "IELTS: 7.5 (Reading: 9.0, Listening: 8.5). SAT: 1480 (Math: 780, Verbal: 700). Школьная республиканская олимпиада по английскому языку: Top-10 (9-е место в республике); победитель школьного, городского и областного этапов (1-е место). Республиканская олимпиада ZEEN 2025: победитель (1-е место). Опыт преподавания: вёл занятия в волонтёрских образовательных проектах.", price: "3000 cом", avatarColor: "bg-purple-200", photoUrl: "tutors_photos/AzimToktogaziev.jpg" },
-            { id: 14, name: "Курманова Аймира", rating: 0.0, reviews: 0, role: "Химия", about: "Обучаюсь на третьем курсе Инновационного колледжа АУЦА направления \"Экология и Энергетическая Эффективность\".", experience: "IELTS 8.0, тьютор по математическому анализу в Инновационном колледже при АУЦА, преподавала физику и химию.", price: "3500 сом", avatarColor: "bg-purple-200", photoUrl: "" }
-        ];
 
-        const mentors = [
-            { id: 17, name: "Саитбекова Айназик", rating: 0.0, reviews: 0, countries: "Венгрия", about: "Люблю путешествовать, изучать языки. буду рада помочь с поступлением и поделиться опытом, советами. Учусь на втором курсе.", experience: "Самостоятельно поступила на полные гранты в Corvinus University и University of Pécs, подготовив заявку всего за две недели без помощи агентств.", price: "160 $", uni: "Corvinus '28", major: "BA International Relations", grant: "Stipendium Hungaricum Scholarship", photoUrl: "ainazik.mentor.jpg" },
-            { id: 18, name: "Тариэлова Аяна", rating: 0.0, reviews: 0, countries: "Корея", about: "Меня зовут Аяна, я обучаюсь в Южной Корее по направлению International Studies и прошла весь путь поступления за границу самостоятельно , от подготовки документов до адаптации в новой стране.", experience: "Я хорошо понимаю, с какими трудностями сталкиваются абитуриенты: выбор университета, подготовка мотивационного письма, визовые вопросы, поиск общежития, языковой барьер и стресс перед переездом. Я работаю с амбициозными студентами и родителями, которые понимают, что поступление за рубеж — это инвестиция в карьеру и международные возможности.", price: "220 $", uni: "JBNU '28", major: "International Studies", grant: "Merit based", photoUrl: "ayana.mentor.jpg", reviewsData: [] },
-            { id: 19, name: "Камилла Сельпиева", rating: 0.0, reviews: 0, countries: "Венгрия", about: "Помогаю абитуриентам из Кыргызстана поступить в Венгрию на стипендиальную программу Stipendium Hungaricum. Моя цель — выстроить стратегию успешного зачисления в университеты Венгрии, помочь абитуриентам выбрать подходящее направление и подготовить сильное мотивационное эссе, основываясь на личном опыте поступления.", experience: "Самостоятельно поступила в топовые вузы США и Канады (University of Toronto, Temple, Drexel, Manhattanville) без помощи агентств. Мое главное достижение — интенсивная подготовка к IELTS с повышением балла с 4.0 до 7.0 всего за 3 месяца. Специализируюсь на эффективном изучении языка и успешной подаче документов в конкурентные университеты.", price: "200 $", uni: "Corvinus '26", major: "International Relations", grant: "Stipendium Hungaricum Scholarship", photoUrl: "kamilla.mentor.JPG" },
+    <script src="data.js"></script>
+    <script src="header.js"></script>
+    <script src="app.js"></script>
 
-        ];
-
-        let currentMode = "tutors";
-        let comingFromProfile = false;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            const urlParams = new URLSearchParams(window.location.search);
-            const initialView = urlParams.get('view') || 'home';
-            const initialParam = urlParams.get('param');
-            navigateTo(initialView, initialParam, true);
-        });
-
-        window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.view) {
-                navigateTo(event.state.view, event.state.param, true);
-            } else {
-                navigateTo('home', null, true);
-            }
-        });
-
-        function navigateTo(viewId, param = null, isPopState = false) {
-            if (!isPopState) {
-                let url = viewId === 'home' ? window.location.pathname : `?view=${viewId}`;
-                if (param) url += `&param=${param}`;
-                history.pushState({ view: viewId, param: param }, '', url);
-            }
-
-            document.querySelectorAll('.page-section').forEach(el => {
-                el.classList.remove('active');
-                el.style.display = 'none'; 
-            });
-
-            const target = document.getElementById(`view-${viewId}`);
-            if(target) {
-                target.style.display = 'block';
-                setTimeout(() => target.classList.add('active'), 10);
-                if (viewId !== 'home') {
-                    window.scrollTo(0, 0);
-                }
-            }           
-
-            if (viewId === 'catalog') {
-                if (!param && !comingFromProfile) {
-                    resetFilters();
-                }
-                comingFromProfile = false; 
-                filterCatalog();
-            }
-
-            if (viewId === 'profile' && param) renderProfile(param);
-            if (viewId === 'mentor-profile' && param) renderMentorProfile(param);
-
-            document.querySelectorAll("[id^='view-']").forEach(v => v.classList.add("hidden"));
-            document.getElementById("view-" + viewId).classList.remove("hidden");
-        }
-
-        function scrollToSection(sectionId) {
-            setTimeout(() => {
-                const section = document.getElementById(sectionId);
-                if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 50);
-        }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        function filterCatalog() {
-            const searchQuery = document.getElementById('catalog-search').value.toLowerCase();
-
-            if (currentMode === "tutors") {
-                const checkedFilters = Array.from(document.querySelectorAll('#exam-filters input:checked, #olympiad-filters input:checked'))
-                                            .map(input => input.value.toLowerCase());
-
-                const filtered = tutors.filter(tutor => {
-                    const matchesSearch = tutor.name.toLowerCase().includes(searchQuery) || 
-                                          tutor.role.toLowerCase().includes(searchQuery);
-
-                    const matchesFilters = checkedFilters.length === 0 || 
-                                           checkedFilters.some(filter => tutor.role.toLowerCase().includes(filter));
-
-                    return matchesSearch && matchesFilters;
-                });
-                renderCatalog(filtered);
-            } else {
-                const checkedFilters = Array.from(document.querySelectorAll('#country-filters input:checked'))
-                                            .map(input => input.value);
-
-                const filtered = mentors.filter(m => {
-                    const matchesSearch = m.name.toLowerCase().includes(searchQuery) || 
-                                          m.role.toLowerCase().includes(searchQuery);
-
-                    const matchesFilters = checkedFilters.length === 0 || 
-                                           checkedFilters.some(c => m.countries.includes(c));
-
-                    return matchesSearch && matchesFilters;
-                });
-                renderMentors(filtered);
-            }
-        }
-        
-        function filterTutorsByTag(tag) {
-             switchMode('tutors');
-             const radio = document.querySelector('input[name="mode"][value="tutors"]');
-             if (radio) radio.checked = true;
-             
-             document.querySelectorAll('#exam-filters input, #olympiad-filters input, #country-filters input').forEach(i => i.checked = false);
-             
-             const checkbox = document.querySelector(`#exam-filters input[value="${tag}"], #olympiad-filters input[value="${tag}"]`);
-             if (checkbox) checkbox.checked = true;
-             
-             filterCatalog();
-        }
-
-        function resetFilters() {
-            document.getElementById('catalog-search').value = '';
-            document.querySelectorAll('.lg\\:w-1\\/4 input[type="checkbox"]').forEach(input => input.checked = false);
-            
-            const tutorsRadio = document.querySelector('input[name="mode"][value="tutors"]');
-            if (tutorsRadio) tutorsRadio.checked = true;
-            
-            switchMode('tutors');
-        }
-
-        function switchMode(mode) {
-            currentMode = mode;
-            if (mode === "tutors") {
-                document.getElementById("country-filters").style.display = "none";
-                document.getElementById("exam-filters-wrapper").style.display = "block";
-                document.getElementById("olympiad-filters-wrapper").style.display = "block";
-            } else {
-                document.getElementById("country-filters").style.display = "block";
-                document.getElementById("exam-filters-wrapper").style.display = "none";
-                document.getElementById("olympiad-filters-wrapper").style.display = "none";
-            }
-            filterCatalog();
-        }
-
-        function renderCatalog(tutorsToRender) {
-            const grid = document.getElementById('tutors-grid');
-            const noResults = document.getElementById('no-results');
-
-            if (tutorsToRender.length === 0) {
-                grid.style.display = 'none';
-                noResults.classList.remove('hidden');
-            } else {
-                grid.style.display = 'grid';
-                noResults.classList.add('hidden');
-                grid.innerHTML = tutorsToRender.map(tutor => `
-                    <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden flex flex-col">
-                        <div class="p-6">
-                            <div class="flex items-start gap-4 mb-4">
-                                ${tutor.photoUrl 
-                                    ? `<img src="${tutor.photoUrl}" alt="${tutor.name}" class="w-16 h-16 rounded-full flex-shrink-0 object-cover border border-gray-100">` 
-                                    : `<div class="w-16 h-16 ${tutor.avatarColor || 'bg-blue-200'} rounded-full flex-shrink-0 flex items-center justify-center text-xl font-bold text-gray-600">${tutor.name.charAt(0)}</div>`
-                                }
-                                <div>
-                                    <h3 class="font-bold text-blue-900 text-lg">${tutor.name}</h3>
-                                    <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1">
-                                        <div class="flex text-yellow-400 text-sm">
-                                            ${'★'.repeat(Math.floor(tutor.rating))}${'☆'.repeat(5 - Math.floor(tutor.rating))}
-                                        </div>
-                                        <span class="text-gray-400">${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <p class="font-bold text-blue-900 text-sm mb-1">Экзамены: ${tutor.role}</p>
-                                <p class="text-gray-600 text-xs line-clamp-2 mb-2"><span class="font-semibold text-gray-700">О себе:</span> ${tutor.about}</p>
-                                <p class="text-gray-600 text-xs line-clamp-2"><span class="font-semibold text-gray-700">Опыт:</span> ${tutor.experience}</p>
-                            </div>
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
-                                <div class="font-bold text-sm">
-                                    <p class="text-green-700 font-bold text-sm">Цена за курс: ${tutor.price}</p>
-                                    <p class="text-gray-900 text-sm">Пробный урок: 100 с/30 мин</p>
-
-                                </div>
-                                <button onclick="navigateTo('profile', ${tutor.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
-                                    Подробнее
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            lucide.createIcons();
-        }
-
-        function renderMentors(list) {
-            const grid = document.getElementById("tutors-grid");
-            const noResults = document.getElementById('no-results');
-
-            if (list.length === 0) {
-                grid.style.display = 'none';
-                noResults.classList.remove('hidden');
-            } else {
-                grid.style.display = 'grid';
-                noResults.classList.add('hidden');
-                grid.innerHTML = list.map(m => `
-                    <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden flex flex-col">
-                        <div class="p-6">
-                            <div class="flex items-start gap-4 mb-4">
-                                ${m.photoUrl 
-                                    ? `<img src="${m.photoUrl}" alt="${m.name}" class="w-16 h-16 rounded-full flex-shrink-0 object-cover border border-gray-100">` 
-                                    : `<div class="w-16 h-16 ${m.avatarColor || 'bg-blue-200'} rounded-full flex-shrink-0 flex items-center justify-center text-xl font-bold text-gray-600">${m.name.charAt(0)}</div>`
-                                }
-                                <div>
-                                    <h3 class="font-bold text-blue-900 text-lg">${m.name}</h3>
-                                    <div class="flex items-center text-yellow-500 text-xs gap-1 mt-1">
-                                        <div class="flex text-yellow-400 text-sm">
-                                            ${'★'.repeat(Math.floor(m.rating))}${'☆'.repeat(5 - Math.floor(m.rating))}
-                                        </div>
-                                        <span class="text-gray-400">${m.rating} из 5.0 (${m.reviews} отзывов)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <p class="font-bold text-blue-900 text-sm mb-1">Направление: ${m.countries}</p>
-                                <p class="text-gray-600 text-xs line-clamp-2 mb-2"><span class="font-semibold text-gray-700">О себе:</span> ${m.about}</p>
-                                <p class="text-gray-600 text-xs line-clamp-2"><span class="font-semibold text-gray-700">Опыт:</span> ${m.experience}</p>
-                            </div>
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
-                                <div class="font-bold text-sm">
-                                    <p class="text-green-700 font-bold text-sm">Стоимость: ${m.price}</p>
-                                </div>
-                                <button onclick="navigateTo('mentor-profile', ${m.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
-                                    Подробнее
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `).join("");
-            }
-            lucide.createIcons();
-        }
-
-        function renderReviewsCarousel(person) {
-            const reviews = person.reviewsData || [];
-            if (!reviews.length) {
-                return `
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-                        <h3 class="text-xl font-bold text-blue-900 mb-7">Отзывы студентов</h3>
-                        <p class="text-gray-500 text-sm">У этого наставника пока нет отзывов. Вы можете стать первым!</p>
-                    </div>
-                `;
-            }
-
-            return `
-                <section class="space-y-8 mb-12">
-                    <div class="flex justify-between items-center px-2">
-                        <h2 class="text-2xl font-black text-blue-950 uppercase tracking-tighter">Отзывы студентов</h2>
-                        <div class="flex items-center text-yellow-500 text-xs gap-1">
-                            <span class="text-gray-700 font-semibold">${person.rating.toFixed(1)} из 5.0</span>
-                            <span class="text-gray-400">(${person.reviews} отзывов)</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-6 overflow-x-auto pb-6 hide-scrollbar snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
-                        ${reviews.map((review, index) => `
-                            <div class="min-w-[260px] max-w-xs bg-white p-7 rounded-[2rem] border border-slate-100 shadow-sm hover:translate-y-[-4px] transition duration-300 snap-center flex-shrink-0">
-                                <div class="flex items-center gap-4 mb-6">
-                                    
-                                    <div class="text-[13px] font-black text-blue-950">${review.author}</div>
-                                    <div class="text-[10px] font-bold text-blue-600 uppercase tracking-tight">
-                                        ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
-                                    </div>
-                                    
-                                </div>
-                                <p class="text-[13px] text-slate-500 font-medium italic leading-relaxed">
-                                    "${review.text}"
-                                </p>
-                            </div>
-                        `).join('')}
-
-                    </div>
-                </section>
-            `;
-        }
-
-        function renderProfile(id) {
-            comingFromProfile = true;
-            const tutor = tutors.find(t => t.id === Number(id));
-            if (!tutor) return;
-
-            document.getElementById('profile-content').innerHTML = `
-
-                <section class="bg-white rounded-[2.5rem] mb-8 shadow-sm border border-slate-100 overflow-hidden">
-                    <div class="p-8 md:p-14">
-                        <div class="flex flex-col md:flex-row gap-12 items-start">
-                            
-                            <div class="w-full md:w-1/3 flex flex-col items-center text-center">
-                                <div class="relative">
-                                    ${tutor.photoUrl 
-                                        ? `<img src="${tutor.photoUrl}" alt="${tutor.name}" class="w-44 h-44 rounded-full object-cover border-4 border-slate-50 shadow-xl">` 
-                                        : `<div class="w-44 h-44 ${tutor.avatarColor || 'bg-blue-200'} rounded-full object-cover border-4 border-slate-50 shadow-xl flex items-center justify-center text-4xl font-bold text-gray-600">${tutor.name.charAt(0)}</div>`
-                                    }
-                                    <div class="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg rotate-12 tracking-widest uppercase">
-                                        ${tutor.role}
-                                    </div>
-                                </div>
-                                <h1 class="text-2xl font-black mt-8 text-blue-950">${tutor.name}</h1>
-                                <div class="flex gap-1 text-amber-400 text-xs mt-2 font-bold tracking-widest uppercase">
-                                    ${'★'.repeat(Math.floor(tutor.rating))}${'☆'.repeat(5 - Math.floor(tutor.rating))} <span class="text-slate-300 ml-1"> ${tutor.rating} из 5.0 (${tutor.reviews} отзывов)</span>
-                                </div>
-                            </div>
-
-                            <div class="w-full md:w-2/3 space-y-8">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">О себе</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${tutor.about}</p>
-                                    </div>
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Опыт</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${tutor.experience}</p>
-                                    </div>
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Предметы</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${tutor.role}</p>
-                                    </div>
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Стоимость</h3>
-                                        <p class="text-sm text-green-500 leading-relaxed font-medium">${tutor.price}</p>
-                                        <p class="text-gray-900 text-sm">Пробный урок 100 с/30 мин</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <div class="relative w-full">
-                    <div class="bg-blue-50 rounded-3xl p-8 md:p-12 shadow-xl mb-8 border border-white/20">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 leading-tight mb-4">
-                            ${tutor.name} запускает  — <br>
-                            <span class="text-blue-800">Интенсивный Курс! ${tutor.role}</span>
-                        </h2>
-                        <p class="text-slate-700 mb-8">Месяц для полного погружения и твердого результата</p>
-
-                        <div class="space-y-6">
-                            <div class="flex items-baseline gap-2">
-                                <span class="text-3xl font-bold text-slate-900">${tutor.price}</span>
-                            </div>
-
-                            <ul class="space-y-3">
-                                <li class="flex items-center gap-3 text-slate-700">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                                    Разбор "ловушек" экзамена и стратегий победителя
-                                </li>
-                                <li class="flex items-center gap-3 text-slate-700">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                                    Разбор всех тем, сложных заданий и типичных ошибок
-                                </li>
-                                <li class="flex items-center gap-3 text-slate-700">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                                    Контроль прогресса и регулярная практика
-                                </li>
-                                <li class="flex items-center gap-3 text-slate-700">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                                    Практические советы от человека, который уже прошел этот путь
-                                </li>
-                            </ul>
-
-                            <div class="pt-4 flex flex-wrap items-start gap-4">
-                                <a href="https://t.me/aalam_edu" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-9 rounded-xl transition-all shadow-lg hover:shadow-blue-200 active:scale-95 text-lg">
-                                    Хочу на курс
-                                </a>
-                                <a href="https://t.me/aalam_edu" class="px-7 py-3 rounded-xl font-bold text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-100 transition-all text-center flex items-center cursor-pointer">
-                                    Пробный урок
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                ${renderReviewsCarousel(tutor)}
-
-                <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100 text-center shadow-sm">
-                    <h3 class="text-xl font-bold text-blue-900 mb-4">Нужна помощь в подборе наставника?</h3>
-                    <p class="text-gray-600 mb-6">Свяжитесь с менеджером для консультации перед бронированием.</p>
-                     <div class="flex justify-center items-center gap-4">
-                        <a href="https://t.me/aalam_edu" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#229ED9] hover:bg-[#1e8dbf] text-white" title="Написать в Telegram">
-                            <i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i>
-                        </a>
-                        <a href="https://wa.me/996704500520" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#25D366] hover:bg-[#20bd5a] text-white" title="Написать в WhatsApp">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </a>
-                         <a href="https://www.instagram.com/aalamedu?igsh=cDVzeGRtMDVheHgx" target="_blank" class="rounded px-2 py-2 social-icon-link bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Написать в Instagram">
-                            <i data-lucide="instagram" class="w-6 h-6"></i>
-                        </a>
-                    </div>
-                </div>
-            `;
-            lucide.createIcons();
-        }
-
-        function renderMentorProfile(id) {
-            comingFromProfile = true;
-            const m = mentors.find(m => m.id === Number(id));
-            if (!m) return;
-
-            document.getElementById("mentor-profile-content").innerHTML = `
-                <section class="bg-white rounded-[2.5rem] mb-8 shadow-sm border border-slate-100 overflow-hidden">
-                    <div class="p-8 md:p-14">
-                        <div class="flex flex-col md:flex-row gap-12 items-start">
-                            
-                            <div class="w-full md:w-1/3 flex flex-col items-center text-center">
-                                <div class="relative">
-                                    <img src="${m.photoUrl}" class="w-44 h-44 rounded-full object-cover border-4 border-slate-50 shadow-xl">
-                                    <div class="absolute -top-1 -right-4 bg-blue-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg rotate-12 tracking-widest uppercase">
-                                        ${m.uni}
-                                    </div>
-                                </div>
-                                <h1 class="text-2xl font-black mt-8 text-blue-950">${m.name}</h1>
-                                <div class="flex gap-1 text-amber-400 text-xs mt-2 font-bold tracking-widest uppercase">
-                                    ${'★'.repeat(Math.floor(m.rating))}${'☆'.repeat(5 - Math.floor(m.rating))} <span class="text-slate-300 ml-1"> ${m.rating} из 5.0 (${m.reviews} отзывов)</span>
-                                </div>
-                            </div>
-
-                            <div class="w-full md:w-2/3 space-y-8">
-                                <div class="grid grid-cols-1 gap-8">
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">О себе</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${m.about}</p>
-                                    </div>
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Опыт</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${m.experience}</p>
-                                    </div>
-                                    <div class="border-l-2 border-blue-600 pl-4">
-                                        <h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Стоимость</h3>
-                                        <p class="text-sm text-slate-500 leading-relaxed font-medium">${m.price}</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-wrap gap-3">
-                                    <div class="px-5 py-3 bg-white border border-slate-200 rounded-full shadow-sm flex items-center gap-3">
-                                        <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        <span class="text-xs font-bold text-slate-400 uppercase">Страна</span>
-                                        <span class="text-sm font-black text-slate-900">${m.countries}</span>
-                                    </div>
-                                    <div class="px-5 py-3 bg-white border border-slate-200 rounded-full shadow-sm flex items-center gap-3">
-                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                        <span class="text-xs font-bold text-slate-400 uppercase">Университет</span>
-                                        <span class="text-sm font-black text-slate-900">${m.uni}</span>
-                                    </div>
-                                    <div class="px-5 py-3 bg-white border border-slate-200 rounded-full shadow-sm flex items-center gap-3">
-                                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Факультет</span>
-                                        <span class="text-sm font-black text-slate-900">${m.major}</span>
-                                    </div>
-                                    <div class="px-5 py-3 bg-white border border-slate-200 rounded-full shadow-sm flex items-center gap-3">
-                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Грант</span>
-                                        <span class="text-sm font-black text-slate-900">${m.grant}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section class="relative w-full mx-auto py-12 mb-12">
-                    <div class="bg-white rounded-[2.5rem] p-8 md:p-14 border border-slate-100 shadow-2xl">
-                        <div class="mb-12">
-                            <h2 class="text-4xl font-black text-blue-950 mb-4 tracking-tighter">60 Дней Сопровождения</h2>
-                            <p class="mb-3 text-blue-600 font-bold uppercase text-xs tracking-[0.2em]">Твой путь в университет мечты начинается здесь</p>
-                            <p class="text-sm text-slate-500 leading-snug">За 2 месяца ментор полностью подготовит тебя к международному поступлению. Ты получишь четкую дорожную карту и упакованный кейс, который выделит тебя среди тысяч абитуриентов.</p>
-
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-8 mb-12">
-                            <div class="flex gap-4">
-                                <span class="text-2xl">🎓</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Country Guide</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Разбираем специфику и требования вузов.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="text-2xl">💡</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Confidence</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Ты перестанешь бояться подачи. Вместо хаоса появится понятная стратегия и уверенность в каждом шаге.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="text-2xl">✍️</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Essay Workshop</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Обучу писать сильное мотивационное письмо на основе моих успешных кейсов.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="text-2xl">💼</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Case Study</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Создаем твой уникальный профиль и портфолио достижений.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="text-2xl">🔧</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Tech Support</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Полностью объясняем процесс подачи</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="text-2xl">📍</span>
-                                <div>
-                                    <h4 class="font-black text-blue-900 mb-1">Adaptation</h4>
-                                    <p class="text-sm text-slate-500 leading-snug">Твой план жизни и учебы в новой стране от первого лица.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row items-center justify-between p-8 bg-slate-50 rounded-3xl border border-slate-100">
-                            <div>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Полный пакет (2 месяца)</p>
-                                <div class="text-3xl font-black text-blue-950">${m.price}</div>
-                            </div>
-                            <a href="https://t.me/aalam_edu" target="_blank" class="mt-6 sm:mt-0 bg-blue-600 text-white px-10 py-4 rounded-2xl font-black hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                                Начать поступление
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
-
-                ${renderReviewsCarousel(m)}
-
-                <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100 text-center shadow-sm">
-                    <h3 class="text-xl font-bold text-blue-900 mb-4">Хотите записаться на консультацию?</h3>
-                    <p class="text-gray-600 mb-6">Свяжитесь с менеджером для бронирования времени.</p>
-                     <div class="flex justify-center items-center gap-4">
-                        <a href="https://t.me/aalam_edu" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#229ED9] hover:bg-[#1e8dbf] text-white" title="Написать в Telegram">
-                            <i data-lucide="send" class="w-6 h-6 relative -left-0.5"></i>
-                        </a>
-                        <a href="https://wa.me/996704500520" target="_blank" class="rounded px-2 py-2 social-icon-link bg-[#25D366] hover:bg-[#20bd5a] text-white" title="Написать в WhatsApp">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </a>
-                         <a href="https://www.instagram.com/aalamedu?igsh=cDVzeGRtMDVheHgx" target="_blank" class="rounded px-2 py-2 social-icon-link bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Написать в Instagram">
-                            <i data-lucide="instagram" class="w-6 h-6"></i>
-                        </a>
-                    </div>
-                </div>
-                
-            `;
-            lucide.createIcons();
-        }
-
-        
-    </script>
-    
 </body>
 </html>
-
 
 
 
