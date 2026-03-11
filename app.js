@@ -389,7 +389,7 @@ function renderReviewsCarousel(person) {
                     <div class="min-w-[260px] max-w-xs bg-white p-7 rounded-[2rem] border border-slate-100 shadow-sm snap-center flex-shrink-0">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="text-[13px] font-black text-blue-950">${r.author}</div>
-                            <div class="text-yellow-400 text-xs">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                            <div class="text-blue-600 text-xs">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
                         </div>
                         <p class="text-[13px] text-slate-500 font-medium italic leading-relaxed">"${r.text}"</p>
                     </div>`).join('')}
@@ -550,4 +550,5 @@ function renderContactBlock(
                 <a href="https://www.instagram.com/aalamedu" target="_blank" class="rounded px-2 py-2 bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#C13584] hover:opacity-90 text-white" title="Instagram"><i data-lucide="instagram" class="w-6 h-6"></i></a>
             </div>
         </div>`;
+
 }
