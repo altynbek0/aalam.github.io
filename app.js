@@ -500,7 +500,7 @@ async function renderMentorProfile(id) {
                             <div class="border-l-2 border-blue-600 pl-4"><h3 class="text-[11px] font-black text-blue-600 uppercase tracking-[0.2em] mb-2">Стоимость</h3><p class="text-sm text-slate-500 font-medium">${m.price}</p></div>
                         </div>
                         <div class="flex flex-wrap gap-3">
-                            ${[['blue-600','Страна',m.countries],['green-500','Университет',m.uni],['blue-500','Факультет',m.major],['green-500','Грант',m.grant]].map(([color,label,val]) => `
+                            ${[['blue-600','Страна',m.countries],['green-500','Университет',m.uni],['blue-500','Факультет',m.major],['green-500','Грант',m.award]].map(([color,label,val]) => `
                             <div class="px-5 py-3 bg-white border border-slate-200 rounded-full shadow-sm flex items-center gap-3">
                                 <div class="w-2 h-2 bg-${color} rounded-full"></div>
                                 <span class="text-xs font-bold text-slate-400 uppercase">${label}</span>
