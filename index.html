@@ -145,6 +145,8 @@
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Языки:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
                             <span onclick="navigateTo('catalog'); setTimeout(() => { switchMode('languages'); const r = document.querySelector('input[name=mode][value=languages]'); if(r) r.checked=true; }, 50)" class="px-6 py-2 rounded-full bg-green-600 text-white font-medium cursor-pointer shadow-md hover:bg-green-700 transition-colors">Кыргызский язык</span>
+                            <span onclick="navigateTo('catalog'); setTimeout(() => { switchMode('languages'); const r = document.querySelector('input[name=mode][value=languages]'); if(r) r.checked=true; }, 50)" class="px-6 py-2 rounded-full bg-green-600 text-white font-medium cursor-pointer shadow-md hover:bg-green-700 transition-colors">Английский язык</span>
+
                         </div>
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Популярные Экзамены:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
@@ -257,6 +259,8 @@
                                         <h4 class="font-bold text-blue-900 text-sm mb-3">Язык:</h4>
                                         <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3" id="language-filters">
                                             <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Кыргызский" class="accent-blue-600" onchange="filterCatalog()"><span>Кыргызский</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Английский" class="accent-blue-600" onchange="filterCatalog()"><span>Английский</span></label>
+
                                         </div>
                                     </div>
 
@@ -265,6 +269,8 @@
                                         <div class="flex flex-col gap-2 text-sm text-gray-700 mb-3">
                                             <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Венгрия" class="accent-blue-600" onchange="filterCatalog()"><span>Венгрия</span></label>
                                             <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Корея"   class="accent-blue-600" onchange="filterCatalog()"><span>Корея</span></label>
+                                            <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600"><input type="checkbox" value="Турция"   class="accent-blue-600" onchange="filterCatalog()"><span>Турция</span></label>
+
                                         </div>
                                     </div>
 
