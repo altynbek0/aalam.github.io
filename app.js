@@ -148,9 +148,9 @@ function resetFilters() {
     document.getElementById('catalog-search').value = '';
     document.querySelectorAll('#exam-filters input, #olympiad-filters input, #country-filters input, #language-filters input')
             .forEach(i => i.checked = false);
-    const radio = document.querySelector('input[name="mode"][value="tutors"]');
+    const radio = document.querySelector('input[name="mode"][value="mentors"]');
     if (radio) radio.checked = true;
-    switchMode('tutors');
+    switchMode('mentors');
 }
 
 function switchMode(mode) {
