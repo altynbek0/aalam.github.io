@@ -565,7 +565,9 @@ async function initMentorsMap() {
     const map = L.map('map', {
         center: [30, 20],
         zoom: 2,
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        maxBounds: [[-90, -180], [90, 180]],
+        maxBoundsViscosity: 1.0
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
