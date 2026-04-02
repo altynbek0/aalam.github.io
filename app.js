@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const initialView  = urlParams.get('view')  || 'home';
     const initialParam = urlParams.get('param');
     navigateTo(initialView, initialParam, true);
+    initMentorsMap();
 });
 
 window.addEventListener('popstate', (event) => {
@@ -555,5 +556,70 @@ function renderContactBlock(
             </div>
         </div>`;
 
+}
+
+async function initMentorsMap() {
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+
+    const map = L.map('map', {
+        center: [30, 20],
+        zoom: 2,
+        scrollWheelZoom: false
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    try {
+        const locations = await getMentorsLocations();
+
+        // Группируем по координатам
+        const grouped = {};
+        locations.forEach(m => {
+            const key = `${m.lat},${m.lng}`;
+            if (!grouped[key]) grouped[key] = [];
+            grouped[key].push(m);
+        });
+
+        // Рисуем маркеры
+        Object.entries(grouped).forEach(([key, mentors]) => {
+            const [lat, lng] = key.split(',').map(Number);
+            const count = mentors.length;
+
+            const color = count === 1 ? '#5686f6'
+                        : count === 2 ? '#466cf4'
+                        : '#1E3A8A';
+
+            const radius = count === 1 ? 6
+                         : count === 2 ? 8
+                         : 11;
+
+            const marker = L.circleMarker([lat, lng], {
+                radius,
+                fillColor: color,
+                color: '#FFFFFF',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.9
+            }).addTo(map);
+
+            const content = mentors.map(m => `
+                <div style="margin-bottom:8px;">
+                    <strong>${m.name}</strong><br>
+                    <span style="color:#6B7280;font-size:12px;">${m.uni}</span>
+                </div>
+            `).join('<hr style="margin:4px 0">');
+
+            marker.bindPopup(content);
+            marker.on('mouseover', function() { this.openPopup(); });
+            marker.on('mouseout',  function() { this.closePopup(); });
+            marker.on('click', function() { this.openPopup(); });
+        });
+
+    } catch (e) {
+        console.error("Ошибка при отрисовке карты:", e);
+    }
 }
 
