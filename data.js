@@ -98,3 +98,13 @@ function normalizeMentor(m) {
         reviewsData: []
     };
 }
+
+async function getMentorsLocations() {
+    const res = await fetch(
+        `${SUPABASE_URL}/rest/v1/mentors?select=id,name,uni,lat,lng`,
+        { headers: supabaseHeaders }
+    );
+    if (!res.ok) throw new Error('Ошибка загрузки локаций');
+    const data = await res.json();
+    return data.filter(m => m.lat !== null && m.lng !== null);
+}
