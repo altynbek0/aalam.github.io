@@ -199,7 +199,7 @@ function renderCatalog(list) {
                         <p class="text-green-700 font-bold text-sm">Цена за курс: ${t.price}</p>
                         <p class="text-gray-900 font-bold text-sm">Пробный урок: 100 с/30 мин</p>
                     </div>
-                    <button onclick="navigateTo('profile', ${t.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
+                    <button onclick="navigateTo('profile', ${t.id})" class="cursor-pointer px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
                         Подробнее
                     </button>
                 </div>
@@ -241,7 +241,7 @@ function renderMentors(list) {
                 </div>
                 <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
                     <p class="text-green-700 font-bold text-sm">Стоимость: ${m.price}</p>
-                    <button onclick="navigateTo('mentor-profile', ${m.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
+                    <button onclick="navigateTo('mentor-profile', ${m.id})" class="cursor-pointer px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
                         Подробнее
                     </button>
                 </div>
@@ -289,7 +289,7 @@ function renderLanguageTutors(list) {
                         <p class="text-green-700 font-bold text-sm">Цена за курс: ${t.price}</p>
                         <p class="text-gray-900 font-bold text-sm">Пробный урок: 100 с/30 мин</p>
                     </div>
-                    <button onclick="navigateTo('language-profile', ${t.id})" class="px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
+                    <button onclick="navigateTo('language-profile', ${t.id})" class="cursor-pointer px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
                         Подробнее
                     </button>
                 </div>
