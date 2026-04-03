@@ -759,6 +759,9 @@
   .border-white {
     border-color: var(--color-white);
   }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
   .border-t-transparent {
     border-top-color: transparent;
   }
