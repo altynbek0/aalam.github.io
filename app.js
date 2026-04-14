@@ -240,7 +240,10 @@ function renderMentors(list) {
                     <p class="text-gray-600 text-xs line-clamp-2"><span class="font-semibold text-gray-700">Опыт:</span> ${m.experience}</p>
                 </div>
                 <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
-                    <p class="text-green-700 font-bold text-sm">Стоимость: ${m.price}</p>
+                    <div>
+                        <p class="text-green-700 font-bold text-sm">Стоимость: ${m.price}</p>
+                        <p class="text-gray-900 font-bold text-sm">Бесплатная консультация</p>
+                    </div>
                     <button onclick="navigateTo('mentor-profile', ${m.id})" class="cursor-pointer px-6 py-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
                         Подробнее
                     </button>
