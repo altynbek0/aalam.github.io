@@ -9,7 +9,7 @@ const supabaseHeaders = {
 
 async function getTutors() {
     const res = await fetch(
-        `${SUPABASE_URL}/rest/v1/tutors?is_active=eq.true&order=id.asc`,
+        `${SUPABASE_URL}/rest/v1/tutors?is_active=eq.true&order=rating.desc.nullslast,id.asc`,
         { headers: supabaseHeaders }
     );
     if (!res.ok) throw new Error('Ошибка загрузки наставников');
@@ -28,7 +28,7 @@ async function getTutorById(id) {
 
 async function getMentors() {
     const res = await fetch(
-        `${SUPABASE_URL}/rest/v1/mentors?is_active=eq.true&order=id.asc`,
+        `${SUPABASE_URL}/rest/v1/mentors?is_active=eq.true&order=rating.desc.nullslast,id.asc`,
         { headers: supabaseHeaders }
     );
     if (!res.ok) throw new Error('Ошибка загрузки менторов');
@@ -47,7 +47,7 @@ async function getMentorById(id) {
 
 async function getLanguageTutors() {
     const res = await fetch(
-        `${SUPABASE_URL}/rest/v1/language_tutors?is_active=eq.true&order=id.asc`,
+        `${SUPABASE_URL}/rest/v1/language_tutors?is_active=eq.true&order=rating.desc.nullslast,id.asc`,
         { headers: supabaseHeaders }
     );
     if (!res.ok) throw new Error('Ошибка загрузки преподавателей языков');
