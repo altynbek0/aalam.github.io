@@ -176,7 +176,6 @@
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-2">
 
-            <!-- Логотип -->
             <div class="flex items-center gap-2 cursor-pointer group shrink-0"
                  onclick="navigateTo('home'); scrollToSection('hero')">
                 <i data-lucide="graduation-cap"
@@ -184,7 +183,6 @@
                 <span class="header-logo-text font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
             </div>
 
-            <!-- Навигация (скрыта на мобиле <768px) -->
             <nav class="header-nav hidden md:flex items-center gap-10 flex-shrink-0">
                 <button onclick="navigateTo('home'); scrollToSection('hero')"
                         class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors whitespace-nowrap">Главная</button>
@@ -194,7 +192,6 @@
                         class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors whitespace-nowrap">Наша Миссия</button>
             </nav>
 
-            <!-- Кнопки действий -->
             <div class="header-actions hidden md:flex items-center gap-4 shrink-0">
                 <button onclick="navigateTo('catalog')"
                         class="header-btn-find px-6 py-2 rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all hover:shadow-lg whitespace-nowrap">
@@ -211,13 +208,11 @@
                 </button>
             </div>
 
-            <!-- Гамбургер (только мобиле <768px) -->
             <button class="md:hidden text-gray-600 p-1" onclick="toggleMobileMenu()">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- Мобильное меню -->
         <div id="mobile-menu"
              class="hidden md:hidden bg-white border-t border-gray-100 p-4 flex flex-col gap-4 shadow-lg absolute w-full z-50">
             <button onclick="navigateTo('home'); scrollToSection('hero'); toggleMobileMenu()"
