@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aalam - Платформа наставников</title>
-    <meta name="description" content="Менторы по поступлениям в университеты. Найдите лучшего наставника для подготовки к экзаменам ОРТ, SAT, IELTS и олимпиадам. Индивидуальные занятия онлайн с экспертами, сдавшими экзамены на высшие баллы. Платформа Aalam. Аалам.">
+    <meta name="description" content="Найдите лучшего наставника для подготовки к экзаменам ORT, SAT, IELTS и олимпиадам. Индивидуальные занятия онлайн с экспертами, сдавшими экзамены на высшие баллы. Платформа AALAM.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.aalamedu.com/">
     <meta property="og:title" content="Aalam - Платформа наставников">
-    <meta property="og:description" content="Aalam. Аалам. Менторы по поступлениям в университеты. Подготовка к ОРТ, SAT, IELTS с лучшими наставниками.">
+    <meta property="og:description" content="Подготовка к ORT, SAT, IELTS с лучшими наставниками.">
     <meta property="og:image" content="https://www.aalamedu.com/img/favicon.png">
 
-<link href="src/output.css" rel="stylesheet">    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -38,53 +40,199 @@
         }
         .animate-blob { animation: blob 7s infinite; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .w-150  { width: 35rem; }
         .h-150  { height: 35rem; }
         .scroll-mt-24 { scroll-margin-top: 6rem; }
         .hide-scrollbar { scrollbar-width: none; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .header-nav { gap: 20px !important; }
+            .header-nav button { font-size: 13px !important; white-space: nowrap; }
+            .header-actions { gap: 10px !important; }
+            .header-btn-find {
+                padding: 8px 18px !important;
+                font-size: 13px !important;
+                white-space: nowrap;
+            }
+            .header-btn-become {
+                padding: 8px 16px !important;
+                font-size: 13px !important;
+                white-space: nowrap;
+            }
+        }
+
+        #view-student h3 { font-size: 16px !important; }
+
+        @media (max-width: 1023px) {
+            #view-student p,
+            #view-student span,
+            #view-student button,
+            #view-student input,
+            #view-student select,
+            #view-student li { font-size: 13px !important; }
+
+            #view-student .student-card { width: 100% !important; }
+            #view-student .dashboard-grid-2col { flex-direction: column !important; }
+
+            #view-student .tracker-controls {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            #view-student #tracker-add-btn {
+                grid-column: span 2;
+            }
+
+            #view-student .notes-controls {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            #view-student #note-add-btn {
+                grid-column: span 2;
+            }
+
+            #view-student .results-form {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            #view-student .result-add {
+                grid-column: span 2;
+            }
+
+            #plan-category-progress {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 12px !important;
+            }
+
+            #results-charts {
+                flex-direction: column !important;
+            }
+            #results-charts > div {
+                flex: 1 1 100% !important;
+                min-width: 0 !important;
+                width: 100% !important;
+            }
+
+            #view-student .w-full,
+            #view-student [class*="lg:w-["] { width: 100% !important; }
+
+            #view-student .profile-avatar-block {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #view-student .rounded-\[2\.5rem\] { border-radius: 1.25rem !important; }
+
+            #view-student .tracker-controls {
+                grid-template-columns: 1fr !important;
+            }
+            #view-student #tracker-add-btn {
+                grid-column: auto !important;
+            }
+
+            #view-student .notes-controls {
+                grid-template-columns: 1fr !important;
+            }
+            #view-student #note-add-btn {
+                grid-column: auto !important;
+            }
+
+            #view-student .results-form {
+                grid-template-columns: 1fr !important;
+            }
+            #view-student .result-add {
+                grid-column: auto !important;
+            }
+
+            #view-student input,
+            #view-student select,
+            #view-student button { min-width: 0; }
+        }
+
+
+        @media (max-width: 1023px) {
+            .student-profile-header {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
+            .student-avatar-section {
+                flex-direction: row !important;
+                align-items: center !important;
+                text-align: left !important;
+                width: 100% !important;
+            }
+            .student-deadline-widget {
+                width: 100% !important;
+            }
+        }
+        
     </style>
 </head>
 <body class="bg-white text-gray-800 flex flex-col min-h-screen">
 
     <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home'); scrollToSection('hero')">
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
-                <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-2">
+
+            <!-- Логотип -->
+            <div class="flex items-center gap-2 cursor-pointer group shrink-0"
+                 onclick="navigateTo('home'); scrollToSection('hero')">
+                <i data-lucide="graduation-cap"
+                   class="header-logo-icon w-8 h-8 text-blue-600 group-hover:rotate-12 transition-transform"></i>
+                <span class="header-logo-text font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
             </div>
 
-            <nav class="hidden md:flex items-center gap-10">
-                <button onclick="navigateTo('home'); scrollToSection('hero')" class="cursor-pointer text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Главная</button>
-                <button onclick="navigateTo('home'); scrollToSection('why_we_section')" class="cursor-pointer text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Почему мы?</button>
-                <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="cursor-pointer text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Наша Миссия</button>
+            <!-- Навигация (скрыта на мобиле <768px) -->
+            <nav class="header-nav hidden md:flex items-center gap-10 flex-shrink-0">
+                <button onclick="navigateTo('home'); scrollToSection('hero')"
+                        class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors whitespace-nowrap">Главная</button>
+                <button onclick="navigateTo('home'); scrollToSection('why_we_section')"
+                        class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors whitespace-nowrap">Почему мы?</button>
+                <button onclick="navigateTo('home'); scrollToSection('mission_section')"
+                        class="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors whitespace-nowrap">Наша Миссия</button>
             </nav>
 
-            <div class="hidden md:flex items-center gap-4">
-                <button onclick="navigateTo('catalog')" class="cursor-pointer px-6 py-2 rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all hover:shadow-lg">
+            <!-- Кнопки действий -->
+            <div class="header-actions hidden md:flex items-center gap-4 shrink-0">
+                <button onclick="navigateTo('catalog')"
+                        class="header-btn-find px-6 py-2 rounded-full font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all hover:shadow-lg whitespace-nowrap">
                     Найти Наставника
                 </button>
-                <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="cursor-pointer px-6 py-2 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all">
+                <button onclick="navigateTo('home'); scrollToSection('cta_section')"
+                        class="header-btn-become px-6 py-2 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all whitespace-nowrap">
                     Стать наставником
+                </button>
+                <button id="header-auth-btn" onclick="navigateTo('auth')"
+                        class="header-btn-user w-11 h-11 rounded-full font-medium border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all flex items-center justify-center shrink-0"
+                        aria-label="Войти" title="Войти">
+                    <i data-lucide="user" class="w-5 h-5"></i>
                 </button>
             </div>
 
-            <button class="md:hidden text-gray-600" onclick="toggleMobileMenu()">
-                <i data-lucide="menu"></i>
+            <!-- Гамбургер (только мобиле <768px) -->
+            <button class="md:hidden text-gray-600 p-1" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 flex flex-col gap-4 shadow-lg absolute w-full z-50">
-            <button onclick="navigateTo('home'); scrollToSection('hero'); toggleMobileMenu()" class="text-left text-gray-600 font-medium">Главная</button>
-            <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="text-left text-blue-600 font-medium">Найти Наставника</button>
-            <button onclick="navigateTo('home'); scrollToSection('cta_section'); toggleMobileMenu()" class="text-left text-blue-600 font-medium">Стать наставником</button>
+        <!-- Мобильное меню -->
+        <div id="mobile-menu"
+             class="hidden md:hidden bg-white border-t border-gray-100 p-4 flex flex-col gap-4 shadow-lg absolute w-full z-50">
+            <button onclick="navigateTo('home'); scrollToSection('hero'); toggleMobileMenu()"
+                    class="text-left text-gray-600 font-medium">Главная</button>
+            <button id="mobile-auth-btn" onclick="navigateTo('auth'); toggleMobileMenu()"
+                    class="text-left text-blue-600 font-medium">Войти</button>
+            <button onclick="navigateTo('catalog'); toggleMobileMenu()"
+                    class="text-left text-blue-600 font-medium">Найти Наставника</button>
+            <button onclick="navigateTo('home'); scrollToSection('cta_section'); toggleMobileMenu()"
+                    class="text-left text-blue-600 font-medium">Стать наставником</button>
         </div>
     </header>
 
     <main class="flex-grow relative">
 
-        
         <section id="view-home" class="page-section active">
 
             <div id="hero" class="bg-gradient-to-br from-blue-50 via-blue-100 to-white pt-12 pb-20 relative overflow-hidden scroll-mt-24">
@@ -99,7 +247,7 @@
                             <p class="text-blue-900 font-medium text-sm">Подготовка к IELTS, SAT, олимпиадам и сопровождение при поступлении в лучшие вузы мира от опытных наставников.</p>
                         </div>
                         <div>
-                            <button onclick="navigateTo('catalog')" class="cursor-pointer px-8 py-4 text-sm bg-blue-600 text-white rounded-full font-bold shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center">
+                            <button onclick="navigateTo('catalog')" class="px-8 py-4 text-sm bg-blue-600 text-white rounded-full font-bold shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center">
                                 <i data-lucide="search" class="w-5 h-5 mr-2"></i>
                                 НАЙТИ НАСТАВНИКА
                             </button>
@@ -107,7 +255,7 @@
                     </div>
                     <div class="hidden md:flex md:w-1/2 justify-center relative">
                         <div class="relative w-250 h-250 md:w-96 md:h-96 flex items-center justify-center">
-                            <img src="main.jpg" alt="Школьница готовится к экзаменам с наставником онлайн на платформе AALAM" class="rounded-3xl" onerror="this.style.display='none'">
+                            <img src="img/girl.jpg" alt="Школьница готовится к экзаменам с наставником онлайн на платформе AALAM" class="rounded-3xl" onerror="this.style.display='none'">
                         </div>
                     </div>
                 </div>
@@ -139,19 +287,19 @@
                     </div>
                 </div>
             </div>
-            <hr class="border-gray-200">
+
+            <hr class="border-gray-300">
+
             <div class="max-w-6xl mx-auto px-4 py-12">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-slate-900">Наши менторы по всему миру</h2>
                     <p class="text-slate-500 mt-2">Студенты, которые уже поступили и помогают другим.</p>
                 </div>
-        
                 <div class="relative bg-white p-4 rounded-[32px] shadow-xl shadow-slate-100 border border-slate-50">
                     <div id="map" class="w-full h-[500px] rounded-[24px] z-10"></div>
                 </div>
-                
                 <div class="text-center mt-8">
-                    <button onclick="navigateTo('catalog')" class="cursor-pointer inline-block px-8 py-3 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors">
+                    <button onclick="navigateTo('catalog')" class="inline-block px-8 py-3 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors">
                         Посмотреть всех менторов
                     </button>
                 </div>
@@ -164,7 +312,6 @@
                         <div class="flex flex-wrap gap-3 mb-6">
                             <span onclick="navigateTo('catalog'); setTimeout(() => { switchMode('languages'); const r = document.querySelector('input[name=mode][value=languages]'); if(r) r.checked=true; }, 50)" class="px-6 py-2 rounded-full bg-green-600 text-white font-medium cursor-pointer shadow-md hover:bg-green-700 transition-colors">Кыргызский</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => { switchMode('languages'); const r = document.querySelector('input[name=mode][value=languages]'); if(r) r.checked=true; }, 50)" class="px-6 py-2 rounded-full bg-green-600 text-white font-medium cursor-pointer shadow-md hover:bg-green-700 transition-colors">Английский</span>
-
                         </div>
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Популярные Экзамены:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
@@ -172,7 +319,6 @@
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('SAT'), 50)"   class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">SAT</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('HSK'), 50)"   class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">HSK</span>
                             <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('IELTS'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">IELTS</span>
-                            <span onclick="navigateTo('catalog'); setTimeout(() => filterTutorsByTag('TOEFL'), 50)" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium cursor-pointer shadow-md hover:bg-blue-700 transition-colors">TOEFL</span>
                         </div>
                         <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-6 tracking-wide uppercase">Предметные Олимпиады:</h2>
                         <div class="flex flex-wrap gap-3 mb-6">
@@ -214,7 +360,7 @@
                 </div>
             </section>
 
-            <hr class="border-gray-100">
+            <hr>
 
             <section id="cta_section" class="py-20 px-4">
                 <div class="max-w-5xl mx-auto bg-white rounded-[2.5rem] p-12 text-center shadow-2xl shadow-blue-50 relative overflow-hidden">
@@ -262,12 +408,12 @@
                     <input type="text" id="catalog-search" placeholder="Найти наставника по имени или предмету..." class="w-full ml-4 outline-none text-gray-700" oninput="filterCatalog()">
                 </div>
 
-                <div class="max-h-[80vh] overflow-y-auto pr-2 custom-scrollbar flex flex-col lg:flex-row gap-8 relative">
-                    <div class="lg:w-1/4 lg:sticky lg:top-36 h-fit">
+                <div class="pr-2 custom-scrollbar flex flex-col lg:flex-row gap-8 relative">
+                    <div class="lg:w-1/4 lg:sticky lg:top-44 h-fit">
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="font-bold text-blue-900 text-lg uppercase tracking-wide">Фильтры</h3>
-                                <button onclick="resetFilters()" class="cursor-pointer text-xs text-blue-600 hover:underline">Сбросить</button>
+                                <button onclick="resetFilters()" class="text-xs text-blue-600 hover:underline">Сбросить</button>
                             </div>
                             <div class="space-y-6">
                                 <div>
@@ -342,7 +488,6 @@
             </div>
         </section>
 
-    
         <section id="view-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
@@ -354,7 +499,6 @@
             </div>
         </section>
 
-       
         <section id="view-mentor-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
@@ -366,7 +510,6 @@
             </div>
         </section>
 
-        
         <section id="view-language-profile" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="flex items-center text-sm text-gray-500 mb-6 cursor-pointer hover:text-blue-600" onclick="navigateTo('catalog')">
@@ -378,20 +521,72 @@
             </div>
         </section>
 
+
+        <section id="view-auth" class="page-section bg-gradient-to-br from-blue-50 via-blue-100 to-white min-h-screen py-12" style="display: none;">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div class="bg-white/80 backdrop-blur rounded-[2.5rem] p-10 md:p-12 shadow-2xl shadow-blue-100 border border-blue-100">
+                        <div class="flex items-center gap-2 mb-6">
+                            <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600"></i>
+                            <span class="font-black text-blue-900 tracking-widest">Aalam</span>
+                        </div>
+                        <h2 class="text-3xl font-black text-slate-900 leading-tight">Вход для ученика</h2>
+                        <p class="text-slate-600 mt-3">Зайди через Google и создай профиль — дальше увидишь свой кабинет с задачами и планом поступления.</p>
+
+                        <div class="mt-8 space-y-4">
+                            <button id="btn-google" class="w-full px-6 py-4 rounded-full font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-3">
+                                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 4.1 29.4 2 24 2 12.9 2 4 10.9 4 22s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-1.5z"/>
+                                    <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 4.1 29.4 2 24 2 16.3 2 9.6 6.3 6.3 14.7z"/>
+                                    <path fill="#4CAF50" d="M24 42c5.2 0 10-2 13.6-5.2l-6.3-5.2C29.3 36 26.8 37 24 37c-5.2 0-9.6-3.3-11.2-7.9l-6.5 5C9.6 40.7 16.3 42 24 42z"/>
+                                    <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3-3.5 5.4-6.7 6.6l6.3 5.2C38.2 36.7 44 32 44 22c0-.7-.1-1.6-.4-1.5z"/>
+                                </svg>
+                                Продолжить с Google
+                            </button>
+                            <p class="text-xs text-slate-500 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                            <div id="auth-error" class="hidden text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl p-4"></div>
+                        </div>
+                    </div>
+
+                    <div class="hidden lg:block">
+                        <div class="relative">
+                            <div class="absolute -top-8 -left-8 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+                            <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+                            <div class="relative bg-white rounded-[2.5rem] p-10 border border-blue-100 shadow-xl">
+                                <h3 class="text-xl font-black text-blue-900">Что будет в кабинете</h3>
+                                <ul class="mt-4 space-y-3 text-slate-700">
+                                    <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Прогресс заполнения профиля</li>
+                                    <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Ближайшие задачи и дедлайны</li>
+                                    <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> План поступления и этапы</li>
+                                    <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Университеты, заявки и статистика</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="view-student" class="page-section bg-gray-50 min-h-screen py-8" style="display: none;">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div id="student-root"></div>
+            </div>
+        </section>
+
+
         <section id="view-privacy" class="page-section container mx-auto px-4 py-12 max-w-4xl" style="display: none;">
             <h2 class="text-3xl font-bold text-blue-900 mb-8">Политика конфиденциальности</h2>
             <div class="prose prose-blue max-w-none text-gray-700 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h3>1. Введение.</h3>
                 <p>Мы AALAM серьезно относимся к конфиденциальности ваших данных. Эта Политика объясняет, какую информацию мы собираем, когда вы пользуетесь нашим сайтом aalamedu.com, и как мы ее используем.</p>
                 <p>Используя наш сайт и бронируя занятия с наставниками, вы соглашаетесь с условиями этой Политики.</p>
-
                 <h3>2. Какую информацию мы собираем и как.</h3>
                 <p>Мы собираем только тот минимум информации, который необходим для организации вашего обучения:</p>
                 <ul>
                     <li><strong>Информация, которую вы предоставляете сами:</strong> имя, контактный номер телефона, адрес электронной почты, информация о желаемом предмете или цели занятия.</li>
                     <li><strong>Автоматически собираемая информация:</strong> тип устройства, браузера и операционной системы. Мы также используем файлы cookie для улучшения пользовательского опыта.</li>
                 </ul>
-
                 <h3>3. Зачем мы используем ваши данные.</h3>
                 <ul>
                     <li><strong>Организация занятий:</strong> Чтобы подтвердить бронь и соединить вас с наставником.</li>
@@ -399,19 +594,14 @@
                     <li><strong>Поддержка:</strong> Чтобы отвечать на вопросы и решать проблемы.</li>
                     <li><strong>Улучшение сервиса:</strong> Анализ обезличенных данных.</li>
                 </ul>
-
                 <h3>4. Кому мы передаем ваши данные.</h3>
                 <p>Мы не продаем и не передаем ваши личные данные третьим лицам в маркетинговых целях. Доступ имеют: выбранный вами наставник, сервис Calendly (для бронирования), а также — по требованию закона.</p>
-
                 <h3>5. Хранение и безопасность данных.</h3>
                 <p>Сайт использует защищенное соединение (SSL), что гарантирует шифрование данных при передаче.</p>
-
                 <h3>6. Ваши права.</h3>
                 <p>Вы имеете право узнать, какие данные мы храним, и попросить изменить или удалить их. Просто напишите нашему менеджеру в любом удобном мессенджере.</p>
-
                 <h3>7. Изменения в Политике.</h3>
                 <p>Мы можем обновлять эту Политику. Актуальная версия всегда будет доступна на этой странице.</p>
-
                 <h3>8. Контакты.</h3>
                 <p>Если у вас есть вопросы, свяжитесь с нами через мессенджеры в разделе «Контакты» или в подвале сайта.</p>
                 <p class="text-sm text-gray-500 mt-8"><em>Дата последнего обновления: Декабрь 2026 г.</em></p>
@@ -428,35 +618,270 @@
                     <span class="font-bold text-lg text-blue-600 tracking-widest">Aalam</span>
                 </div>
                 <div class="flex flex-col gap-3 text-sm text-gray-600">
-                    <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="cursor-pointer text-left hover:text-blue-600">Стать Наставником</button>
-                    <button onclick="navigateTo('home'); scrollToSection('why_we_section')" class="cursor-pointer text-left hover:text-blue-600">Почему мы?</button>
-                    <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="cursor-pointer text-left hover:text-blue-600">Наша Миссия</button>
-                    <button onclick="navigateTo('privacy')" class="cursor-pointer text-left hover:text-blue-600">Политика конфиденциальности</button>
+                    <button onclick="navigateTo('home'); scrollToSection('cta_section')" class="text-left hover:text-blue-600">Стать Наставником</button>
+                    <button onclick="navigateTo('home'); scrollToSection('why_we_section')" class="text-left hover:text-blue-600">Почему мы?</button>
+                    <button onclick="navigateTo('home'); scrollToSection('mission_section')" class="text-left hover:text-blue-600">Наша Миссия</button>
+                    <button onclick="navigateTo('privacy')" class="text-left hover:text-blue-600">Политика конфиденциальности</button>
                 </div>
                 <div class="flex flex-col gap-3 text-sm text-gray-600">
-                    <a href="https://www.instagram.com/aalamedu" target="_blank" class="flex items-center gap-2 hover:text-pink-600"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>Instagram</a>
+                    <a href="https://www.instagram.com/aalamedu" target="_blank" class="flex items-center gap-2 hover:text-pink-600">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>Instagram
+                    </a>
                     <a href="https://t.me/aalamedu" target="_blank" class="flex items-center gap-2 hover:text-blue-600"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
                     <a href="https://wa.me/996704500520" target="_blank" class="flex items-center gap-2 hover:text-green-600"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</a>
                 </div>
                 <div class="flex flex-col items-start md:items-end justify-between h-full">
                     <i data-lucide="arrow-up" class="w-6 h-6 text-gray-400 mb-4 cursor-pointer hover:text-blue-600" onclick="window.scrollTo({top:0,behavior:'smooth'})"></i>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aalamedu.team@gmail.com" target="_blank" class="text-gray-500 text-xs underline decoration-gray-300 hover:text-blue-600"><span class="__cf_email__" data-cfemail="3150505d505c5455441f4554505c71565c50585d1f525e5c">aalamedu.team@gmail.com</span></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aalamedu.team@gmail.com" target="_blank" class="text-gray-500 text-xs underline decoration-gray-300 hover:text-blue-600">aalamedu.team@gmail.com</a>
                 </div>
             </div>
             <div class="border-t border-blue-200 pt-8 text-center">
                 <p class="text-gray-400 text-xs">© 2026 AALAM. Все права защищены.</p>
-                <a href="Регламент.pdf" target="_blank"><button class="cursor-pointer text-gray-400 text-xs underline hover:text-gray-600 mt-2">Регламент Платформы</button></a>
+                <a href="регламент.pdf" target="_blank"><button class="text-gray-400 text-xs underline hover:text-gray-600 mt-2">Регламент Платформы</button></a>
             </div>
         </div>
     </footer>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="data.js"></script>
-    <script src="header.js"></script>
+
     <script src="app.js"></script>
+
+    <script>
+
+    const _origRenderStudentDashboard = renderStudentDashboard;
+
+    function renderStudentDashboard(container, user, profile) {
+        const name = profile.full_name || user.user_metadata?.full_name || user.email || 'Ученик';
+        const firstName = String(name).split(' ')[0] || 'Ученик';
+        const universities = normalizeUniversities(profile.universities);
+        const applications = normalizeApplications(profile.applications).length
+            ? normalizeApplications(profile.applications)
+            : universities.map((u, i) => ({ id: `app-seed-${i}-${Date.now()}`, school: u, status: 'Черновик', deadline: '' }));
+        const planSteps = normalizePlanSteps(profile.plan_steps);
+        const mentors = normalizeMentorAssignments(profile.mentors);
+
+        let avatarFromStorage = '';
+        try { avatarFromStorage = String(localStorage.getItem(`avatar_${user.id}`) || ''); } catch {}
+        const avatarUrl = avatarFromStorage || profile.avatar_url || user.user_metadata?.avatar_url || user.user_metadata?.picture || '';
+        const pct = Number(profile.profile_percent ?? calcProfilePercent(profile));
+        const planPct = planStepsToPercent(planSteps);
+        const nearestDays = getNearestDeadlineDays(applications);
+
+        const titleEl = document.getElementById('student-greeting-title');
+        const subtitleEl = document.getElementById('student-greeting-subtitle');
+        if (titleEl) titleEl.textContent = `Привет, ${firstName}! 👋`;
+        if (subtitleEl) subtitleEl.textContent = 'Держим курс на твою мечту.';
+
+        container.innerHTML = `
+        <!-- ── Карточка профиля (АВАТАР СВЕРХУ на планшете/мобиле) ── -->
+        <div class="student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden mb-6">
+            <div class="p-4 sm:p-6 md:p-8 lg:p-10">
+                <!-- Верхний блок: аватар + дедлайн -->
+                <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
+
+                    <!-- Аватар + имя — всегда первый на всех экранах -->
+                    <div class="flex flex-row items-center gap-4 sm:gap-5 flex-shrink-0">
+                        <div class="relative flex-shrink-0">
+                            ${avatarUrl
+                                ? `<img id="student-avatar-img" src="${escapeHtml(avatarUrl)}" alt="${escapeHtml(name)}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-blue-100">`
+                                : `<div id="student-avatar-fallback" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-200 flex items-center justify-center text-xl sm:text-2xl font-black text-blue-900">${escapeHtml(firstName.charAt(0))}</div>`}
+                            <button id="avatar-upload-btn" class="absolute -right-1 -bottom-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white border border-blue-200 text-blue-700 flex items-center justify-center hover:bg-blue-50" title="Добавить фото">
+                                <i data-lucide="camera" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                            </button>
+                            <input id="avatar-file-input" type="file" accept="image/*" class="hidden">
+                        </div>
+                        <div>
+                            <h2 class="text-lg sm:text-2xl font-black text-blue-900">${escapeHtml(name)}</h2>
+                            <p class="text-gray-600 text-xs sm:text-sm">${escapeHtml(user.email || '')}</p>
+                            <p class="text-gray-500 text-xs mt-0.5">Ученик Aalam</p>
+                            <button id="profile-edit-btn" class="mt-2 text-xs font-bold text-blue-600 hover:underline">Редактировать профиль</button>
+                        </div>
+                    </div>
+
+                    <!-- Растяжка -->
+                    <div class="flex-1 hidden lg:block"></div>
+
+                    <!-- Виджет дедлайна — под аватаром на мобиле/планшете, справа на десктопе -->
+                    <div class="w-full lg:w-96 bg-blue-50 rounded-2xl p-4 sm:p-5 border border-blue-100">
+                        <div class="flex justify-between text-sm font-bold text-blue-900">
+                            <span>До ближайшего дедлайна</span>
+                            <span id="deadline-days-label">${nearestDays === null ? '—' : `${nearestDays} дн.`}</span>
+                        </div>
+                        <div class="h-2 bg-white rounded-full overflow-hidden mt-3 border border-blue-100">
+                            <div id="profile-percent-bar" class="h-full rounded-full"></div>
+                        </div>
+                        <ul id="deadline-top3" class="mt-4 space-y-1.5 text-xs text-blue-900"></ul>
+                    </div>
+                </div>
+
+                <!-- Панель редактирования профиля -->
+                <div id="profile-edit-panel" class="hidden mt-4 border-t border-gray-100 pt-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input id="profile-name-input" type="text" class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" value="${escapeHtml(name)}" placeholder="Имя и фамилия">
+                        <select id="profile-goal-input" class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm bg-white">
+                            <option value="">Цель</option>
+                            <option value="admission" ${profile.goal === 'admission' ? 'selected' : ''}>Поступление</option>
+                            <option value="exam" ${profile.goal === 'exam' ? 'selected' : ''}>Экзамены</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 flex gap-2">
+                        <button id="profile-save-btn" class="px-5 py-2 rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700">Сохранить</button>
+                        <button id="profile-cancel-btn" class="px-5 py-2 rounded-xl border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-50">Отмена</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Менторы + Трекер ── -->
+        <div class="dashboard-grid-2col flex flex-col lg:flex-row gap-4 mb-6 items-stretch">
+            <div class="w-full lg:w-[35%] student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-6 md:p-8">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-black text-blue-900">Мои менторы</h3>
+                    <button id="mentor-manage-btn" class="text-sm font-bold text-blue-600 hover:underline">Назначить</button>
+                </div>
+                <ul id="mentor-list" class="mt-5 space-y-3"></ul>
+                <div id="mentor-empty" class="hidden mt-4">
+                    <p class="text-sm text-gray-400">Менторы пока не назначены.</p>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-[65%] student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-6 md:p-8">
+                <div class="flex items-center justify-between gap-3 flex-wrap">
+                    <h3 class="text-lg font-black text-blue-900">Трекер поступления</h3>
+                    <span class="text-xs font-bold text-gray-400 hidden sm:block">вуз + приоритет + статус + дедлайн</span>
+                </div>
+                <div class="mt-5 grid grid-cols-1 gap-2">
+                    <input id="tracker-school-input" type="text" class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" placeholder="Название вуза">
+                    <div class="tracker-controls grid grid-cols-2 md:grid-cols-[auto_minmax(0,1fr)_auto_auto] gap-2 items-stretch">
+                        <select id="tracker-status-input" class="rounded-xl border border-gray-200 px-3 py-2.5 text-sm bg-white">
+                            <option value="Черновик">Черновик</option>
+                            <option value="Подготовка документов">Подготовка</option>
+                            <option value="Подано">Подано</option>
+                            <option value="Принят">Принят</option>
+                            <option value="Отказ">Отказ</option>
+                        </select>
+                        <input id="tracker-site-input" type="url" class="hidden md:block rounded-xl border border-gray-200 px-3 py-2.5 text-sm bg-white" placeholder="Ссылка на сайт вуза">
+                        <input id="tracker-deadline-input" type="date" class="rounded-xl border border-gray-200 px-3 py-2.5 text-sm bg-white">
+                        <button id="tracker-add-btn" class="col-span-2 md:col-span-1 px-4 py-2.5 min-h-[42px] rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 whitespace-nowrap">Добавить</button>
+                    </div>
+                </div>
+                <ul id="tracker-list" class="mt-4 space-y-3"></ul>
+                <p id="tracker-empty" class="hidden mt-4 text-sm text-gray-400">Трекер пока пуст.</p>
+            </div>
+        </div>
+
+        <!-- ── План поступления ── -->
+        <div class="student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-6 md:p-10 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 class="text-lg font-black text-blue-900">Мой план поступления</h3>
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border border-blue-200 text-blue-700 text-xs font-black cursor-help" title="Добавляй и выполняй задачи в блоке «Ближайшие задачи», чтобы видеть прогресс плана.">?</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-1">Общий прогресс</p>
+                </div>
+            </div>
+            <div class="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
+                <div class="flex items-center gap-4 sm:gap-6">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0">
+                        <svg class="w-24 h-24 sm:w-28 sm:h-28 -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+                            <circle id="plan-ring" cx="50" cy="50" r="42" fill="none" stroke="#2563eb" stroke-width="10" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="${(263.9 * (1 - (planPct/100))).toFixed(1)}"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="plan-percent-label" class="text-xl sm:text-2xl font-black text-blue-900">${planPct}%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p id="plan-progress-title" class="font-black text-gray-900">${planPct === 0 ? 'Стартуем!' : 'Хороший прогресс!'}</p>
+                        <p id="plan-progress-hint" class="text-xs sm:text-sm text-gray-500">${planPct === 0 ? 'Выполняй задачи, чтобы увидеть рост прогресса.' : 'Продолжай в том же духе.'}</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-2">
+                    <!-- На мобиле/планшете — 2 колонки через CSS -->
+                    <div id="plan-category-progress" class="grid grid-cols-2 lg:flex lg:justify-between text-xs sm:text-sm text-gray-600 font-bold gap-3"></div>
+                </div>
+            </div>
+            <div id="plan-panel" class="hidden mt-8 border-t border-gray-100 pt-6">
+                <h4 class="text-sm font-black text-blue-900 mb-3">Шаги плана</h4>
+                <ul id="plan-steps-list" class="space-y-2"></ul>
+            </div>
+        </div>
+
+        <!-- ── Задачи + Результаты ── -->
+        <div class="grid grid-cols-1 gap-6 items-stretch">
+
+            <!-- Ближайшие задачи -->
+            <div class="student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-6 md:p-8 h-full">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-black text-blue-900">Ближайшие задачи</h3>
+                    <button id="notes-clear-btn" class="text-sm font-bold text-blue-600 hover:underline">Очистить все</button>
+                </div>
+                <div class="mt-5 w-full grid grid-cols-1 gap-2">
+                    <input id="note-input" type="text" maxlength="140" placeholder="Добавь задачу"
+                           class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-300">
+                    <div class="notes-controls w-full grid grid-cols-2 md:grid-cols-4 gap-2 items-stretch min-w-0">
+                        <select id="note-category-input" class="flex-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2.5 min-h-[42px] text-sm bg-white">
+                            <option value="Исследование">Исследование</option>
+                            <option value="Подготовка">Подготовка</option>
+                            <option value="Сбор документов">Сбор документов</option>
+                            <option value="Подача">Подача</option>
+                        </select>
+                        <select id="note-university-input" class="flex-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2.5 min-h-[42px] text-sm bg-white"></select>
+                        <input id="note-deadline-input" type="date" class="col-span-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2.5 min-h-[42px] text-sm bg-white">
+                        <button id="note-add-btn" class="col-span-2 md:col-span-1 w-full shrink-0 px-3 py-2.5 min-h-[42px] rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 transition-colors whitespace-nowrap">Добавить</button>
+                    </div>
+                </div>
+                <ul id="notes-list" class="mt-4 space-y-3"></ul>
+                <p id="notes-empty" class="hidden mt-4 text-sm text-gray-400">Заметок пока нет. Добавь первую задачу.</p>
+            </div>
+
+            <!-- Статистика результатов -->
+            <div class="student-card bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-4 sm:p-6 md:p-8 h-full">
+                <h3 class="text-lg font-black text-blue-900">Статистика результатов пробных тестов</h3>
+                <div class="results-form mt-5 grid grid-cols-2 lg:grid-cols-[auto_1fr_auto_auto] gap-2 items-stretch">
+                    <select id="result-exam-input" class="rounded-xl border border-gray-200 px-3 py-2.5 min-h-[42px] text-sm bg-white">
+                        <option value="SAT">SAT</option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="ОРТ">ОРТ</option>
+                    </select>
+                    <input id="result-score-input" type="number" step="0.1" min="0"
+                           class="rounded-xl border border-gray-200 px-4 py-2.5 min-h-[42px] text-sm focus:outline-none focus:ring-2 focus:ring-blue-100"
+                           placeholder="Балл">
+                    <input id="result-date-input" type="date"
+                           class="rounded-xl border border-gray-200 px-3 py-2.5 min-h-[42px] text-sm bg-white">
+                    <button id="result-add-btn"
+                            class="result-add col-span-2 lg:col-span-1 px-4 py-2.5 min-h-[42px] rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 whitespace-nowrap">
+                        Добавить
+                    </button>
+                </div>
+                <div id="result-filters" class="mt-4 flex flex-wrap gap-3 text-sm text-gray-700">
+                    <label class="inline-flex items-center gap-2"><input type="checkbox" value="SAT" class="result-filter accent-blue-600" checked><span>SAT</span></label>
+                    <label class="inline-flex items-center gap-2"><input type="checkbox" value="IELTS" class="result-filter accent-blue-600" checked><span>IELTS</span></label>
+                    <label class="inline-flex items-center gap-2"><input type="checkbox" value="ОРТ" class="result-filter accent-blue-600" checked><span>ОРТ</span></label>
+                </div>
+                <!-- Графики: одна колонка на мобиле/планшете, несколько на десктопе -->
+                <div id="results-charts" class="mt-4 flex flex-col lg:flex-row gap-4"></div>
+                <p id="results-empty" class="hidden mt-4 text-sm text-gray-400">Добавь первый результат чтобы увидеть динамику.</p>
+            </div>
+        </div>
+        `;
+
+        const dashboardApi = setupStudentDashboardWidgets(user, {
+            ...profile,
+            full_name: name,
+            profile_percent: pct,
+            plan_steps: planSteps,
+            universities,
+            applications
+        });
+        setupStudentNotesWidget(user, profile, dashboardApi);
+        setupStudentResultsWidget(user);
+    }
+    </script>
 
 </body>
 </html>
